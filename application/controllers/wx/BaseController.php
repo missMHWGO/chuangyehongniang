@@ -14,6 +14,15 @@ class BaseController extends CI_Controller
         parent::__construct();
     }
 
+    public function judge()
+    {
+        if (isset($_GET['echostr'])) {
+            $this->valid();
+        }else{
+            $this->responseMsg();
+        }
+    }
+
     public function valid()
     {
         $echoStr = $_GET["echostr"];
