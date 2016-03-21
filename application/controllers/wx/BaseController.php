@@ -121,16 +121,17 @@ class BaseController extends CI_Controller
         return $resultStr;
     }
 
+
     private function transmitText($object, $content, $funcFlag = 0)
     {
         $textTpl = "<xml>
-            <ToUserName><![CDATA[%s]]></ToUserName>
-            <FromUserName><![CDATA[%s]]></FromUserName>
-            <CreateTime>%s</CreateTime>
-            <MsgType><![CDATA[text]]></MsgType>
-            <Content><![CDATA[%s]]></Content>
-            <FuncFlag>%d</FuncFlag>
-        </xml>";
+<ToUserName><![CDATA[%s]]></ToUserName>
+<FromUserName><![CDATA[%s]]></FromUserName>
+<CreateTime>%s</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[%s]]></Content>
+<FuncFlag>%d</FuncFlag>
+</xml>";
         $resultStr = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $funcFlag);
         return $resultStr;
     }
@@ -138,33 +139,34 @@ class BaseController extends CI_Controller
     private function transmitNews($object, $arr_item, $funcFlag = 0)
     {
         //首条标题28字，其他标题39字
-        if (!is_array($arr_item))
+        if(!is_array($arr_item))
             return;
 
-        $itemTpl = "<item>
-            <Title><![CDATA[%s]]></Title>
-            <Description><![CDATA[%s]]></Description>
-            <PicUrl><![CDATA[%s]]></PicUrl>
-            <Url><![CDATA[%s]]></Url>
-            </item>";
+        $itemTpl = "    <item>
+        <Title><![CDATA[%s]]></Title>
+        <Description><![CDATA[%s]]></Description>
+        <PicUrl><![CDATA[%s]]></PicUrl>
+        <Url><![CDATA[%s]]></Url>
+    </item>
+";
         $item_str = "";
         foreach ($arr_item as $item)
             $item_str .= sprintf($itemTpl, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
 
         $newsTpl = "<xml>
-            <ToUserName><![CDATA[%s]]></ToUserName>
-            <FromUserName><![CDATA[%s]]></FromUserName>
-            <CreateTime>%s</CreateTime>
-            <MsgType><![CDATA[news]]></MsgType>
-            <Content><![CDATA[]]></Content>
-            <ArticleCount>%s</ArticleCount>
-            <Articles>$item_str</Articles>
-            <FuncFlag>%s</FuncFlag>
-            </xml>";
+<ToUserName><![CDATA[%s]]></ToUserName>
+<FromUserName><![CDATA[%s]]></FromUserName>
+<CreateTime>%s</CreateTime>
+<MsgType><![CDATA[news]]></MsgType>
+<Content><![CDATA[]]></Content>
+<ArticleCount>%s</ArticleCount>
+<Articles>
+$item_str</Articles>
+<FuncFlag>%s</FuncFlag>
+</xml>";
 
         $resultStr = sprintf($newsTpl, $object->FromUserName, $object->ToUserName, time(), count($arr_item), $funcFlag);
         return $resultStr;
     }
 }
-
 ?>
