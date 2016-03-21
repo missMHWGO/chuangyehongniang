@@ -99,7 +99,7 @@ class BaseController extends CI_Controller
 
                         $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
                             "Description" => "这是一个测试用图文消息",
-                            "PicUrl" => "./img/logo",
+                            "PicUrl" => "./img/logo.jpg",
                             "Url" => "www.baidu.com");
                         break;
                     default:
