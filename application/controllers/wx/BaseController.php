@@ -123,7 +123,15 @@ class BaseController extends CI_Controller
 
     private function transmitText($object, $content, $funcFlag = 0)
     {
-        $resultStr = sprintf(TEXT_XML, $object->FromUserName, $object->ToUserName, time(), $content, $funcFlag);
+        $textTpl = "<xml>
+            <ToUserName><![CDATA[%s]]></ToUserName>
+            <FromUserName><![CDATA[%s]]></FromUserName>
+            <CreateTime>%s</CreateTime>
+            <MsgType><![CDATA[text]]></MsgType>
+            <Content><![CDATA[%s]]></Content>
+            <FuncFlag>%d</FuncFlag>
+        </xml>";
+        $resultStr = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $funcFlag);
         return $resultStr;
     }
 
@@ -132,9 +140,16 @@ class BaseController extends CI_Controller
         //首条标题28字，其他标题39字
         if (!is_array($arr_item))
             return;
+
+        $itemTpl = "<item>
+            <Title><![CDATA[%s]]></Title>
+            <Description><![CDATA[%s]]></Description>
+            <PicUrl><![CDATA[%s]]></PicUrl>
+            <Url><![CDATA[%s]]></Url>
+            </item>";
         $item_str = "";
         foreach ($arr_item as $item)
-            $item_str .= sprintf(ITEM_XML, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
+            $item_str .= sprintf($itemTpl, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
 
         $newsTpl = "<xml>
             <ToUserName><![CDATA[%s]]></ToUserName>

@@ -12,20 +12,20 @@ define('APPKEY', 'wx809c63746bcf1d76');
 define('APPSECRET', '6b43fca63feac04649542fae733782de');
 
 
-define('TEXT_XML', "<xml>".
-    "<ToUserName><![CDATA[%s]]></ToUserName>".
-    "<FromUserName><![CDATA[%s]]></FromUserName>".
-    "<CreateTime>%s</CreateTime>".
-    "<MsgType><![CDATA[text]]></MsgType>".
-    "<Content><![CDATA[%s]]></Content>".
-    "<FuncFlag>%d</FuncFlag>".
-    "</xml>");
-define('ITEM_XML', "<item>".
-    "<Title><![CDATA[%s]]></Title>".
-    "<Description><![CDATA[%s]]></Description>".
-    "<PicUrl><![CDATA[%s]]></PicUrl>".
-    "<Url><![CDATA[%s]]></Url>".
-    "</item>");
+//define('TEXT_XML', "<xml>".
+//    "<ToUserName><![CDATA[%s]]></ToUserName>".
+//    "<FromUserName><![CDATA[%s]]></FromUserName>".
+//    "<CreateTime>%s</CreateTime>".
+//    "<MsgType><![CDATA[text]]></MsgType>".
+//    "<Content><![CDATA[%s]]></Content>".
+//    "<FuncFlag>%d</FuncFlag>".
+//    "</xml>");
+//define('ITEM_XML', "<item>".
+//    "<Title><![CDATA[%s]]></Title>".
+//    "<Description><![CDATA[%s]]></Description>".
+//    "<PicUrl><![CDATA[%s]]></PicUrl>".
+//    "<Url><![CDATA[%s]]></Url>".
+//    "</item>");
 
 
 
