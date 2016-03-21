@@ -18,7 +18,7 @@ class BaseController extends CI_Controller
     {
         if (isset($_GET['echostr'])) {
             $this->valid();
-        }else{
+        } else {
             $this->responseMsg();
         }
     }
@@ -26,7 +26,7 @@ class BaseController extends CI_Controller
     public function valid()
     {
         $echoStr = $_GET["echostr"];
-        if($this->checkSignature()){
+        if ($this->checkSignature()) {
             header('content-type:text');
             echo $echoStr;
             exit;
@@ -42,12 +42,12 @@ class BaseController extends CI_Controller
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
 
-        if( $tmpStr == $signature ){
+        if ($tmpStr == $signature) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -55,32 +55,102 @@ class BaseController extends CI_Controller
     public function responseMsg()
     {
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-
         if (!empty($postStr)){
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-            $fromUsername = $postObj->FromUserName;
-            $toUsername = $postObj->ToUserName;
-            $keyword = trim($postObj->Content);
-            $time = time();
-            $textTpl = "<xml>
-                        <ToUserName><![CDATA[%s]]></ToUserName>
-                        <FromUserName><![CDATA[%s]]></FromUserName>
-                        <CreateTime>%s</CreateTime>
-                        <MsgType><![CDATA[%s]]></MsgType>
-                        <Content><![CDATA[%s]]></Content>
-                        <FuncFlag>0</FuncFlag>
-                        </xml>";
-            if($keyword == "?" || $keyword == "？")
+            $RX_TYPE = trim($postObj->MsgType);
+
+            switch ($RX_TYPE)
             {
-                $msgType = "text";
-                $contentStr = date("Y-m-d H:i:s",time());
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                echo $resultStr;
+                case "text":
+                    $resultStr = $this->receiveText($postObj);
+                    break;
+                case "event":
+                    $resultStr = $this->receiveEvent($postObj);
+                    break;
+                default:
+                    $resultStr = "";
+                    break;
             }
-        }else{
+            echo $resultStr;
+        }else {
             echo "";
             exit;
         }
     }
+
+    private function receiveText($object)
+    {
+        $funcFlag = 0;
+        $contentStr = "你的留言已收到";
+        $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
+        return $resultStr;
+    }
+
+    private function receiveEvent($object)
+    {
+        $contentStr = "";
+        switch ($object->Event) {
+            case "subscribe":
+                $contentStr = "你好，欢迎关注创业红娘！";
+            case "unsubscribe":
+                break;
+            case "click":
+                switch ($object->EventKey) {
+                    case "CGAL":
+                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    case "BMXZ":
+                        $contentStr[] = array("Title" => "报名须知",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    case "LJBM":
+                        $contentStr[] = array("Title" => "报名须知",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    case "CYHN":
+                        $contentStr[] = array("Title" => "报名须知",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    case "PTJJ":
+                        $contentStr[] = array("Title" => "报名须知",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    case "TZZR":
+                        $contentStr[] = array("Title" => "报名须知",
+                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
+                        break;
+                    default:
+                        $contentStr[] = array("Title" => "默认菜单回复",
+                            "Description" => "您正在使用的是方倍工作室的自定义菜单测试接口",
+                            "PicUrl" => "http://discuz.comli.com/weixin/weather/icon/cartoon.jpg",
+                            "Url" => "weixin://addfriend/pondbaystudio");
+                        break;
+                }
+                break;
+            default:
+                break;
+
+        }
+        if (is_array($contentStr)) {
+            $resultStr = $this->transmitNews($object, $contentStr);
+        } else {
+            $resultStr = $this->transmitText($object, $contentStr);
+        }
+        return $resultStr;
+    }
 }
+
 ?>
