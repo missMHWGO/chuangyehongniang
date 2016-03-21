@@ -93,19 +93,16 @@ class BaseController extends CI_Controller
                 $contentStr = "你好，欢迎关注创业红娘！";
             case "unsubscribe":
                 break;
-            case "CLICK":
+            case "CLICK":  //一定要是大写！！！
                 switch ($object->EventKey) {
                     case "CGAL":
+
                         $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Description" => "这是一个测试用图文消息",
+                            "PicUrl" => "./img/logo",
                             "Url" => "www.baidu.com");
                         break;
                     default:
-                        $contentStr[] = array("Title" => "默认菜单回复",
-                            "Description" => "测试用",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
                         break;
                 }
                 break;

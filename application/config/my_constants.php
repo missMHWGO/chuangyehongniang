@@ -7,6 +7,12 @@
  */
 $config = array();
 
+define('FPETABLE', 'form_person');
+define('FPRTABLE', 'form_project');
+define('PPTABLE', 'person_project');
+
+define('FORM_LIMIT', 10);
+
 define('TOKEN', '6bfcfbd320097d65d72d71e7854b0a23');
 define('APPKEY', 'wx809c63746bcf1d76');
 define('APPSECRET', '6b43fca63feac04649542fae733782de');
