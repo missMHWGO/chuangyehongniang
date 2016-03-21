@@ -93,7 +93,7 @@ class BaseController extends CI_Controller
                 $contentStr = "你好，欢迎关注创业红娘！";
             case "unsubscribe":
                 break;
-            case "click":
+            case "CLICK":
                 switch ($object->EventKey) {
                     case "CGAL":
                         $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
