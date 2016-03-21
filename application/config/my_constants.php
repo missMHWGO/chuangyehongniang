@@ -12,7 +12,20 @@ define('APPKEY', 'wx809c63746bcf1d76');
 define('APPSECRET', '6b43fca63feac04649542fae733782de');
 
 
-
+define('TEXT_XML', "<xml>".
+    "<ToUserName><![CDATA[%s]]></ToUserName>".
+    "<FromUserName><![CDATA[%s]]></FromUserName>".
+    "<CreateTime>%s</CreateTime>".
+    "<MsgType><![CDATA[text]]></MsgType>".
+    "<Content><![CDATA[%s]]></Content>".
+    "<FuncFlag>%d</FuncFlag>".
+    "</xml>");
+define('ITEM_XML', "<item>".
+    "<Title><![CDATA[%s]]></Title>".
+    "<Description><![CDATA[%s]]></Description>".
+    "<PicUrl><![CDATA[%s]]></PicUrl>".
+    "<Url><![CDATA[%s]]></Url>".
+    "</item>");
 
 
 
@@ -32,13 +45,13 @@ define('menu', '{
       "sub_button": [
         {
           "name": "报名须知",
-          "type": "click",
-          "key": "BMXZ"
+          "type": "view",
+          "url":"http://www.baidu.com"
         },
         {
           "name": "立即报名",
-          "type": "click",
-          "key": "LJBM"
+          "type": "view",
+          "url":"http://www.baidu.com"
         }
       ]
     },
@@ -47,18 +60,18 @@ define('menu', '{
       "sub_button": [
         {
           "name": "创业红娘",
-          "type": "click",
-          "key": "CYHN"
+          "type": "view",
+          "url":"http://www.hao123.com/a/tianqi"
         },
         {
           "name": "平台简介",
-          "type": "click",
-          "key": "PTJJ"
+          "type": "view",
+          "url":"http://m.hao123.com/a/tianqi"
         },
         {
           "name": "投资阵容",
-          "type": "click",
-          "key": "TZZR"
+          "type": "view",
+          "url":"http://m.hao123.com/a/tianqi"
         }
       ]
     }

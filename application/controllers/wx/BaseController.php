@@ -55,12 +55,11 @@ class BaseController extends CI_Controller
     public function responseMsg()
     {
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-        if (!empty($postStr)){
+        if (!empty($postStr)) {
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
 
-            switch ($RX_TYPE)
-            {
+            switch ($RX_TYPE) {
                 case "text":
                     $resultStr = $this->receiveText($postObj);
                     break;
@@ -72,7 +71,7 @@ class BaseController extends CI_Controller
                     break;
             }
             echo $resultStr;
-        }else {
+        } else {
             echo "";
             exit;
         }
@@ -102,41 +101,11 @@ class BaseController extends CI_Controller
                             "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
                             "Url" => "www.baidu.com");
                         break;
-                    case "BMXZ":
-                        $contentStr[] = array("Title" => "报名须知",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
-                        break;
-                    case "LJBM":
-                        $contentStr[] = array("Title" => "报名须知",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
-                        break;
-                    case "CYHN":
-                        $contentStr[] = array("Title" => "报名须知",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
-                        break;
-                    case "PTJJ":
-                        $contentStr[] = array("Title" => "报名须知",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
-                        break;
-                    case "TZZR":
-                        $contentStr[] = array("Title" => "报名须知",
-                            "Description" => "方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
-                            "Url" => "www.baidu.com");
-                        break;
                     default:
                         $contentStr[] = array("Title" => "默认菜单回复",
-                            "Description" => "您正在使用的是方倍工作室的自定义菜单测试接口",
-                            "PicUrl" => "http://discuz.comli.com/weixin/weather/icon/cartoon.jpg",
-                            "Url" => "weixin://addfriend/pondbaystudio");
+                            "Description" => "测试用",
+                            "PicUrl" => "https://mp.weixin.qq.com/misc/getheadimg?fakeid=3016836145&token=1260130174&lang=zh_CN",
+                            "Url" => "www.baidu.com");
                         break;
                 }
                 break;
@@ -149,6 +118,36 @@ class BaseController extends CI_Controller
         } else {
             $resultStr = $this->transmitText($object, $contentStr);
         }
+        return $resultStr;
+    }
+
+    private function transmitText($object, $content, $funcFlag = 0)
+    {
+        $resultStr = sprintf(TEXT_XML, $object->FromUserName, $object->ToUserName, time(), $content, $funcFlag);
+        return $resultStr;
+    }
+
+    private function transmitNews($object, $arr_item, $funcFlag = 0)
+    {
+        //首条标题28字，其他标题39字
+        if (!is_array($arr_item))
+            return;
+        $item_str = "";
+        foreach ($arr_item as $item)
+            $item_str .= sprintf(ITEM_XML, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
+
+        $newsTpl = "<xml>
+            <ToUserName><![CDATA[%s]]></ToUserName>
+            <FromUserName><![CDATA[%s]]></FromUserName>
+            <CreateTime>%s</CreateTime>
+            <MsgType><![CDATA[news]]></MsgType>
+            <Content><![CDATA[]]></Content>
+            <ArticleCount>%s</ArticleCount>
+            <Articles>$item_str</Articles>
+            <FuncFlag>%s</FuncFlag>
+            </xml>";
+
+        $resultStr = sprintf($newsTpl, $object->FromUserName, $object->ToUserName, time(), count($arr_item), $funcFlag);
         return $resultStr;
     }
 }
