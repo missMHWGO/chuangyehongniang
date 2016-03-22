@@ -101,15 +101,11 @@ class BaseController extends CI_Controller
                         $newsList = $this->getNewsList($accessToken);
                         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
                         $contentStr = array();
-//                        $key = $res[0][0];
-////                        foreach($res[0] as $key){
-//                            $key = json_decode("{".$key."}", true);
-//                            $contentStr[] = array("Title"=>'"'.$key['title'].'"', "Description"=>'"'.$key['digest'].'"', "PicUrl"=>'"'.$key['thumb_url'].'"', "Url" =>'"'.$key['url'].'"');
-////                        }
-                        $contentStr[] = array("Title" =>"公司简介",
-                            "Description" =>"方倍工作室提供移动互联网相关的产品及服务",
-                            "PicUrl" =>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg",
-                            "Url" =>"weixin://addfriend/pondbaystudio");
+                        $key = $res[0][0];
+//                        foreach($res[0] as $key){
+                            $key = json_decode("{".$key."}", true);
+                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+//                        }
 
                         break;
                     default:
