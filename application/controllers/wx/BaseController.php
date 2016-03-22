@@ -98,14 +98,15 @@ class BaseController extends CI_Controller
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
                         $newsList = $this->getNewsList($accessToken);
-                        preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
-//                        $contentStr = array();
-                        $key = str_replace(" ", "", str_replace(PHP_EOL, "", "{".$res[0][0]."}"));
-//                        foreach($res as $key){
+                        preg_match_all('/\"title\":\"\[.*\].*\",(.*)\"thumb_url\":\".*\"/U', $newsList, $res);
+                        $contentStr = array();
+                        $key = $res[0][0];
+                        $key = json_decode("{".$key."}", true);
+                        $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+//                        foreach($res[0] as $key){
 //                            $key = json_decode("{".$key."}", true);
 //                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
 //                        }
-                        $contentStr = $newsList;
 
                         break;
                     default:
@@ -213,7 +214,7 @@ class BaseController extends CI_Controller
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
         $output = curl_exec($ch);
         curl_close($ch);
-        return $output;
+        return str_replace(" ", "", str_replace(PHP_EOL, "", $output));
     }
 }
 ?>

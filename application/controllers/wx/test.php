@@ -261,12 +261,13 @@ class test extends CI_Controller
   "total_count": 8,
   "item_count": 8
 }';
-        preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $output, $res);
+        $output = str_replace(" ", "", str_replace(PHP_EOL, "", $output));
+        preg_match_all('/\"title\":\"\[.*\].*\",(.*)\"thumb_url\":\".*\"/U', $output, $res);
         $content = array();
         $key = $res[0][0];
         $key = json_decode("{".$key."}", true);
         $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
-        print_r(str_replace(" ", "", str_replace(PHP_EOL, "", "{".$res[0][0]."}")));
+        print_r($key);
         foreach($res[0] as $key){
             $key = json_decode("{".$key."}", true);
             array_push($content, array('"Title"'=>'"'.$key['title'].'",', '"Description"'=>'"'.$key['digest'].'",', '"PicUrl"'=>'"'.$key['thumb_url'].'",', '"Url"' =>'"'.$key['url'].'",'));
