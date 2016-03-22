@@ -101,11 +101,19 @@ class BaseController extends CI_Controller
                         $newsList = $this->getNewsList($accessToken);
                         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
                         $contentStr = array();
-                        $key = $res[0][0];
-//                        foreach($res[0] as $key){
-                            $key = json_decode("{".$key."}", true);
-                            $contentStr[] = array("Title"=>'"'.$key['title'].'"', "Description"=>'"'.$key['digest'].'"', "PicUrl"=>'"'.$key['thumb_url'].'"', "Url" =>'"'.$key['url'].'"');
-//                        }
+//                        $key = $res[0][0];
+////                        foreach($res[0] as $key){
+//                            $key = json_decode("{".$key."}", true);
+//                            $contentStr[] = array("Title"=>'"'.$key['title'].'"', "Description"=>'"'.$key['digest'].'"', "PicUrl"=>'"'.$key['thumb_url'].'"', "Url" =>'"'.$key['url'].'"');
+////                        }
+                        $contentStr = Array
+                        (
+                            [Title] => "[项目4]x",
+                            [Description] => "222",
+                            [PicUrl] => "http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaJuNPNMbwXWBFic6icr8NVSJdtHq3iaaDu9SAicE2Ifv48gLDmogtsfQZvtDHxHR0x8iay4l9FUriaCY3hg/0?wx_fmt=jpeg",
+                            [Url] => "http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402370985&idx=1&sn=c2c6f13b58cc941728961727bae5a30e#rd",
+                        );
+
                         break;
                     default:
                         break;
