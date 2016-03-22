@@ -108,10 +108,10 @@ class BaseController extends CI_Controller
 ////                        }
                         $contentStr = Array
                         (
-                            [Title] => "[项目4]x",
-                            [Description] => "222",
-                            [PicUrl] => "http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaJuNPNMbwXWBFic6icr8NVSJdtHq3iaaDu9SAicE2Ifv48gLDmogtsfQZvtDHxHR0x8iay4l9FUriaCY3hg/0?wx_fmt=jpeg",
-                            [Url] => "http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402370985&idx=1&sn=c2c6f13b58cc941728961727bae5a30e#rd",
+                            ["Title"] => "[项目4]x",
+                            ["Description"] => "222",
+                            ["PicUrl"] => "http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaJuNPNMbwXWBFic6icr8NVSJdtHq3iaaDu9SAicE2Ifv48gLDmogtsfQZvtDHxHR0x8iay4l9FUriaCY3hg/0?wx_fmt=jpeg",
+                            ["Url"] => "http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402370985&idx=1&sn=c2c6f13b58cc941728961727bae5a30e#rd",
                         );
 
                         break;
