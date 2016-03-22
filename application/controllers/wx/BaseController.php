@@ -97,16 +97,15 @@ class BaseController extends CI_Controller
                 switch ($object->EventKey) {
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
-//                        $newsNum = $this->getNewsNum($accessToken);
                         $newsList = $this->getNewsList($accessToken);
                         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
 //                        $contentStr = array();
-                        $key = $res[0][0];
+                        $key = str_replace(" ", "", str_replace(PHP_EOL, "", "{".$res[0][0]."}"));
 //                        foreach($res as $key){
 //                            $key = json_decode("{".$key."}", true);
 //                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
 //                        }
-                        $contentStr = "11111";
+                        $contentStr = $key;
 
                         break;
                     default:
