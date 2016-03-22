@@ -96,13 +96,28 @@ class BaseController extends CI_Controller
             case "CLICK":  //一定要是大写！！！
                 switch ($object->EventKey) {
                     case "CGAL":
-                        $accessToken = $this->getAccessToken();
-                        $newNum = $this->getNewsNum($accessToken);
-                        $contentStr = $this->getNewsList($accessToken, $newNum);
-//                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-//                            "Description" => "这是一个测试用图文消息",
-//                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
-//                            "Url" => "www.baidu.com");
+//                        $accessToken = $this->getAccessToken();
+//                        $newsNum = $this->getNewsNum($accessToken);
+//                        $newsList = $this->getNewsList($accessToken, $newsNum);
+//                        foreach($newsList as $key){
+//                            $subItem = $key['content']['news_item'];
+//                            foreach($subItem as $item){
+//
+//                            }
+//                        }
+                        $contentStr = array();
+                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
+                        "Description" => "这是一个测试用图文消息",
+                        "PicUrl" => "http://121.42.165.222/img/logo.jpg",
+                        "Url" => "www.baidu.com");
+                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
+                            "Description" => "这是一个测试用图文消息",
+                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
+                            "Url" => "www.baidu.com");
+                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
+                            "Description" => "这是一个测试用图文消息",
+                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
+                            "Url" => "www.baidu.com");
                         break;
                     default:
                         break;
@@ -210,7 +225,7 @@ class BaseController extends CI_Controller
         $output = curl_exec($ch);
         curl_close($ch);
         $jsonInfo = json_decode($output, true);
-        return $jsonInfo['item']['content'];
+        return $jsonInfo['item'];
     }
 }
 ?>
