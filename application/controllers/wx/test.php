@@ -263,6 +263,10 @@ class test extends CI_Controller
 }';
         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $output, $res);
         $content = array();
+        $key = $res[0][0];
+        $key = json_decode("{".$key."}", true);
+        $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+        print_r($contentStr);
         foreach($res[0] as $key){
             $key = json_decode("{".$key."}", true);
             array_push($content, array('"Title"'=>'"'.$key['title'].'",', '"Description"'=>'"'.$key['digest'].'",', '"PicUrl"'=>'"'.$key['thumb_url'].'",', '"Url"' =>'"'.$key['url'].'",'));
