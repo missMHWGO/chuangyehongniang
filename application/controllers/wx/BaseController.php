@@ -106,7 +106,7 @@ class BaseController extends CI_Controller
 //                            $key = json_decode("{".$key."}", true);
 //                            $contentStr[] = array("Title"=>'"'.$key['title'].'"', "Description"=>'"'.$key['digest'].'"', "PicUrl"=>'"'.$key['thumb_url'].'"', "Url" =>'"'.$key['url'].'"');
 ////                        }
-                        $contentStr =array("Title" =>"公司简介",
+                        $contentStr[] = array("Title" =>"公司简介",
                             "Description" =>"方倍工作室提供移动互联网相关的产品及服务",
                             "PicUrl" =>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg",
                             "Url" =>"weixin://addfriend/pondbaystudio");
