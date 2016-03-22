@@ -100,12 +100,13 @@ class BaseController extends CI_Controller
 //                        $newsNum = $this->getNewsNum($accessToken);
                         $newsList = $this->getNewsList($accessToken);
                         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
-                        $contentStr = array();
-                        $res = $res[0];
-                        foreach($res as $key){
-                            $key = json_decode("{".$key."}", true);
-                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
-                        }
+//                        $contentStr = array();
+                        $key = $res[0][0];
+//                        foreach($res as $key){
+//                            $key = json_decode("{".$key."}", true);
+//                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+//                        }
+                        $contentStr = $key['title'];
 
                         break;
                     default:
