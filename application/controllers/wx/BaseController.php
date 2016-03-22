@@ -99,9 +99,9 @@ class BaseController extends CI_Controller
                         $accessToken = $this->getAccessToken();
 //                        $newsNum = $this->getNewsNum($accessToken);
                         $newsList = $this->getNewsList($accessToken);
-                        $content = array();
+                        $contentStr = array();
                         foreach($newsList as $key){
-                            $content[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+                            $contentStr[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
                         }
                         break;
                     default:
@@ -210,7 +210,7 @@ class BaseController extends CI_Controller
         $output = curl_exec($ch);
         curl_close($ch);
         $jsonInfo = json_decode($output, true);
-        return $jsonInfo['item']['content']['news_item'];
+        return $jsonInfo['item'][0]['content']['news_item'];
     }
 }
 ?>
