@@ -97,15 +97,12 @@ class BaseController extends CI_Controller
                 switch ($object->EventKey) {
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
-                        $newsNum = $this->getNewsNum($accessToken);
-                        $newsList = $this->getNewsList($accessToken, $newsNum);
-                        print_r($newsList);
-//                        foreach($newsList as $key){
-//                            $subItem = $key['content']['news_item'];
-//                            foreach($subItem as $item){
-//
-//                            }
-//                        }
+//                        $newsNum = $this->getNewsNum($accessToken);
+                        $newsList = $this->getNewsList($accessToken);
+                        $content = array();
+                        foreach($newsList as $key){
+                            $content[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+                        }
                         break;
                     default:
                         break;
@@ -184,26 +181,26 @@ class BaseController extends CI_Controller
         return $jsonInfo["access_token"];
     }
 
-    private function getNewsNum($accessToken)
-    {
-        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$accessToken;
-        $data = '{"voice_count":COUNT,"video_count":COUNT,"image_count":COUNT,"news_count":COUNT}';
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt ( $ch, CURLOPT_POST, 1 );
-        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
-        $output = curl_exec($ch);
-        curl_close($ch);
-        $jsonInfo = json_decode($output, true);
-        return $jsonInfo["news_count"];
-    }
+//    private function getNewsNum($accessToken)
+//    {
+//        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$accessToken;
+//        $data = '{"voice_count":COUNT,"video_count":COUNT,"image_count":COUNT,"news_count":COUNT}';
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_URL, $url);
+//        curl_setopt ( $ch, CURLOPT_POST, 1 );
+//        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+//        $output = curl_exec($ch);
+//        curl_close($ch);
+//        $jsonInfo = json_decode($output, true);
+//        return $jsonInfo["news_count"];
+//    }
 
-    private function getNewsList($accessToken, $newsNum)
+    private function getNewsList($accessToken)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$accessToken;
-        $data = '{"type":"news","offset":'.($newsNum-1).',"count":1}';
+        $data = '{"type":"news","offset":0,"count":1}'; //最新发布的为0
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt ( $ch, CURLOPT_POST, 1 );
@@ -213,7 +210,7 @@ class BaseController extends CI_Controller
         $output = curl_exec($ch);
         curl_close($ch);
         $jsonInfo = json_decode($output, true);
-        return $jsonInfo['item'];
+        return $jsonInfo['item']['content']['news_item'];
     }
 }
 ?>
