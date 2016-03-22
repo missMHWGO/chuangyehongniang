@@ -96,11 +96,12 @@ class BaseController extends CI_Controller
             case "CLICK":  //一定要是大写！！！
                 switch ($object->EventKey) {
                     case "CGAL":
-
-                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-                            "Description" => "这是一个测试用图文消息",
-                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
-                            "Url" => "www.baidu.com");
+                        $accessToken = $this->getAccessToken();
+                        $contentStr = $this->getNewsNum($accessToken);
+//                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
+//                            "Description" => "这是一个测试用图文消息",
+//                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
+//                            "Url" => "www.baidu.com");
                         break;
                     default:
                         break;
@@ -139,31 +140,60 @@ class BaseController extends CI_Controller
         if(!is_array($arr_item))
             return;
 
-        $itemTpl = "    <item>
-        <Title><![CDATA[%s]]></Title>
-        <Description><![CDATA[%s]]></Description>
-        <PicUrl><![CDATA[%s]]></PicUrl>
-        <Url><![CDATA[%s]]></Url>
-    </item>
-";
+        $itemTpl = "<item>
+            <Title><![CDATA[%s]]></Title>
+            <Description><![CDATA[%s]]></Description>
+            <PicUrl><![CDATA[%s]]></PicUrl>
+            <Url><![CDATA[%s]]></Url>
+            </item>";
         $item_str = "";
         foreach ($arr_item as $item)
             $item_str .= sprintf($itemTpl, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
 
         $newsTpl = "<xml>
-<ToUserName><![CDATA[%s]]></ToUserName>
-<FromUserName><![CDATA[%s]]></FromUserName>
-<CreateTime>%s</CreateTime>
-<MsgType><![CDATA[news]]></MsgType>
-<Content><![CDATA[]]></Content>
-<ArticleCount>%s</ArticleCount>
-<Articles>
-$item_str</Articles>
-<FuncFlag>%s</FuncFlag>
-</xml>";
+            <ToUserName><![CDATA[%s]]></ToUserName>
+            <FromUserName><![CDATA[%s]]></FromUserName>
+            <CreateTime>%s</CreateTime>
+            <MsgType><![CDATA[news]]></MsgType>
+            <Content><![CDATA[]]></Content>
+            <ArticleCount>%s</ArticleCount>
+            <Articles>$item_str</Articles>
+            <FuncFlag>%s</FuncFlag>
+        </xml>";
 
         $resultStr = sprintf($newsTpl, $object->FromUserName, $object->ToUserName, time(), count($arr_item), $funcFlag);
         return $resultStr;
+    }
+
+    private function getAccessToken()
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".APPKEY."&secret=".APPSECRET;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        $jsonInfo = json_decode($output, true);
+        return $jsonInfo["access_token"];
+    }
+
+    private function getNewsNum($accessToken)
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$accessToken;
+        $data = '{"voice_count":COUNT,"video_count":COUNT,"image_count":COUNT,"news_count":COUNT}';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        $output = curl_exec($ch);
+        curl_close($ch);
+        $jsonInfo = json_decode($output, true);
+        return $jsonInfo["news_count"];
     }
 }
 ?>
