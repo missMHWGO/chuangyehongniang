@@ -99,8 +99,9 @@ class BaseController extends CI_Controller
                         $accessToken = $this->getAccessToken();
 //                        $newsNum = $this->getNewsNum($accessToken);
                         $newsList = $this->getNewsList($accessToken);
+                        preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $newsList, $res);
                         $contentStr = array();
-                        foreach($newsList as $key){
+                        foreach($res[0] as $key){
                             $contentStr[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
                         }
                         break;
@@ -200,7 +201,7 @@ class BaseController extends CI_Controller
     private function getNewsList($accessToken)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$accessToken;
-        $data = '{"type":"news","offset":0,"count":1}'; //最新发布的为0
+        $data = '{"type":"news","offset":0,"count":20}'; //最新发布的为0
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt ( $ch, CURLOPT_POST, 1 );
@@ -209,8 +210,7 @@ class BaseController extends CI_Controller
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
         $output = curl_exec($ch);
         curl_close($ch);
-        $jsonInfo = json_decode($output, true);
-        return $jsonInfo['item'][0]['content']['news_item'];
+        return $output;
     }
 }
 ?>
