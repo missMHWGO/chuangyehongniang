@@ -262,13 +262,15 @@ class test extends CI_Controller
   "item_count": 8
 }';
         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $output, $res);
-        print_r($res);
         $jsonInfo = json_decode($output, true);
         $newsList = $jsonInfo['item'][0]['content']['news_item'];
         $content = array();
-        foreach($newsList as $key){
-            $content[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+        foreach($res[0] as $key){
+            $key = json_decode("{".$key."}", true);
+            $contentStr[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+            print_r($key);
+//            $contentStr[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
         }
-        print_r($content);
+//        print_r($content);
     }
 }
