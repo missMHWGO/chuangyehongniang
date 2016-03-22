@@ -199,7 +199,7 @@ class BaseController extends CI_Controller
 
     private function getNewsList($accessToken, $newsNum)
     {
-        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$accessToken;
+        $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$accessToken;
         $data = '{"type":"news","offset":'.(($newsNum - 6 >= 0)? ($newsNum-6) : 0).',"count":5}';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
