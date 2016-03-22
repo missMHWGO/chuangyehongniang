@@ -96,28 +96,16 @@ class BaseController extends CI_Controller
             case "CLICK":  //一定要是大写！！！
                 switch ($object->EventKey) {
                     case "CGAL":
-//                        $accessToken = $this->getAccessToken();
-//                        $newsNum = $this->getNewsNum($accessToken);
-//                        $newsList = $this->getNewsList($accessToken, $newsNum);
+                        $accessToken = $this->getAccessToken();
+                        $newsNum = $this->getNewsNum($accessToken);
+                        $newsList = $this->getNewsList($accessToken, $newsNum);
+                        print_r($newsList);
 //                        foreach($newsList as $key){
 //                            $subItem = $key['content']['news_item'];
 //                            foreach($subItem as $item){
 //
 //                            }
 //                        }
-                        $contentStr = array();
-                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-                        "Description" => "这是一个测试用图文消息",
-                        "PicUrl" => "http://121.42.165.222/img/logo.jpg",
-                        "Url" => "www.baidu.com");
-                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-                            "Description" => "这是一个测试用图文消息",
-                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
-                            "Url" => "www.baidu.com");
-                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
-                            "Description" => "这是一个测试用图文消息",
-                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
-                            "Url" => "www.baidu.com");
                         break;
                     default:
                         break;
@@ -215,7 +203,7 @@ class BaseController extends CI_Controller
     private function getNewsList($accessToken, $newsNum)
     {
         $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$accessToken;
-        $data = '{"type":"news","offset":'.(($newsNum - 6 >= 0)? ($newsNum-6) : 0).',"count":5}';
+        $data = '{"type":"news","offset":'.($newsNum-1).',"count":1}';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt ( $ch, CURLOPT_POST, 1 );
