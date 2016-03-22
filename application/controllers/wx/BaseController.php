@@ -97,7 +97,8 @@ class BaseController extends CI_Controller
                 switch ($object->EventKey) {
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
-                        $contentStr = $this->getNewsNum($accessToken);
+                        $newNum = $this->getNewsNum($accessToken);
+                        $contentStr = $this->getNewsList($accessToken, $newNum);
 //                        $contentStr[] = array("Title" => "创业红娘2016年获融资项目汇总",
 //                            "Description" => "这是一个测试用图文消息",
 //                            "PicUrl" => "http://121.42.165.222/img/logo.jpg",
@@ -194,6 +195,22 @@ class BaseController extends CI_Controller
         curl_close($ch);
         $jsonInfo = json_decode($output, true);
         return $jsonInfo["news_count"];
+    }
+
+    private function getNewsList($accessToken, $newsNum)
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$accessToken;
+        $data = '{"type":"news","offset":'.(($newsNum - 6 >= 0)? ($newsNum-6) : 0).',"count":5}';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        $output = curl_exec($ch);
+        curl_close($ch);
+        $jsonInfo = json_decode($output, true);
+        return $output;
     }
 }
 ?>
