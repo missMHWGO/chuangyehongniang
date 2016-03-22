@@ -100,9 +100,11 @@ class BaseController extends CI_Controller
                         $newsList = $this->getNewsList($accessToken);
                         preg_match_all('/\"title\":\"\[.*\].*\",(.*)\"thumb_url\":\".*\"/U', $newsList, $res);
                         $contentStr = array();
+                        $i = 0;
                         foreach($res[0] as $key){
                             $key = json_decode("{".$key."}", true);
                             $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
+                            if($i ++ > 9) break; //最多只能出10条
                         }
 
                         break;
