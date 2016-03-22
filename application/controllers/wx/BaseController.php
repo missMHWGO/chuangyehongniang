@@ -210,7 +210,7 @@ class BaseController extends CI_Controller
         $output = curl_exec($ch);
         curl_close($ch);
         $jsonInfo = json_decode($output, true);
-        return $jsonInfo['item'];
+        return $jsonInfo['item']['content'];
     }
 }
 ?>
