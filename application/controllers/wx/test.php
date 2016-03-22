@@ -264,8 +264,12 @@ class test extends CI_Controller
         preg_match_all('/\"title\": \"\[.*\].*\",(.|\n)*?\"thumb_url\": \".*\"/', $output, $res);
         $content = array();
         foreach($res[0] as $key){
-            $key = json_decode("{".$key."}", true);
-            array_push($content, array('"Title"'=>'"'.$key['title'].'",', '"Description"'=>'"'.$key['digest'].'",', '"PicUrl"'=>'"'.$key['thumb_url'].'",', '"Url"' =>'"'.$key['url'].'",'));
+            $key = json_decode(json_decode(json_encode("{".$key."}"), true), true);
+            print_r(array("Title" =>"公司简介",
+                "Description" =>"方倍工作室提供移动互联网相关的产品及服务",
+                "PicUrl" =>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg",
+                "Url" =>"weixin://addfriend/pondbaystudio"));
+//            array_push($content, array('"Title"'=>'"'.$key['title'].'",', '"Description"'=>'"'.$key['digest'].'",', '"PicUrl"'=>'"'.$key['thumb_url'].'",', '"Url"' =>'"'.$key['url'].'",'));
         }
         print_r($content);
     }
