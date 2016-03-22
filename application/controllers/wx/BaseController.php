@@ -106,7 +106,7 @@ class BaseController extends CI_Controller
 //                            $key = json_decode("{".$key."}", true);
 //                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
 //                        }
-                        $contentStr = $key['title'];
+                        $contentStr = "11111";
 
                         break;
                     default:
