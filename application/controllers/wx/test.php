@@ -265,8 +265,8 @@ class test extends CI_Controller
         $content = array();
         foreach($res[0] as $key){
             $key = json_decode("{".$key."}", true);
-            $content[] = array("Title"=>$key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
             print_r($key);
+            $content[] = array("Title"=>'"'.$key['title'].'"', "Description"=>'"'.$key['digest'].'"', "PicUrl"=>'"'.$key['thumb_url'].'"', "Url" =>'"'.$key['url'].'"');
         }
         print_r($content);
     }
