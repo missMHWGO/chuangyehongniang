@@ -105,7 +105,7 @@ class BaseController extends CI_Controller
 //                            $key = json_decode("{".$key."}", true);
 //                            $contentStr[] = array("Title"=> $key['title'], "Description"=>$key['digest'], "PicUrl"=>$key['thumb_url'], "Url" =>$key['url']);
 //                        }
-                        $contentStr = $key;
+                        $contentStr = $newsList;
 
                         break;
                     default:
