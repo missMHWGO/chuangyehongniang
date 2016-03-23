@@ -56,6 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['wx'] = 'wx/BaseController/judge';
 $route['form/helper']['GET'] = 'Welcome/helper';
 $route['about/(:any)']['GET'] = 'Welcome/about/$1';
-$route['form/(:any)']['GET'] = 'Welcome/OAuth';
+$route['form']['GET'] = 'Welcome/OAuth';
 //$route['form/(:any)']['GET'] = 'Welcome/form/$1';
 $route['users']['POST'] = 'UserController/addUser';
