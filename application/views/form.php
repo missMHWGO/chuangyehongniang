@@ -13,5 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <p>理论上这里是一张报名表</p>
+<?php echo $openId; ?>
 </body>
 </html>

@@ -47,7 +47,8 @@ class Welcome extends CI_Controller {
 		if(!isset($openId) || strlen($openId) != 28){
 			$this->load->view('errors/cli/error_404');
 		}else{
-			$this->load->view('form', $openId);
+			$data['openId'] = $openId;
+			$this->load->view('form', $data);
 		}
 	}
 
