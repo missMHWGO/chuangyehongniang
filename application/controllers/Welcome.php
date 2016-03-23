@@ -22,4 +22,27 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function form($openId)
+	{
+		if(!isset($openId) || strlen($openId) != 28){
+			$this->load->view('errors/cli/error_404');
+		}else{
+			$this->load->view('form', $openId);
+		}
+	}
+
+	public function formHelper()
+	{
+		$this->load->view('helper');
+	}
+
+	public function about($index)
+	{
+		if($index != 'cyhn' && $index != 'ptjj' && $index != 'tzzr'){
+			$this->load->view('errors/cli/error_404');
+		}
+		$this->load->view($index);
+	}
+
 }

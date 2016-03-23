@@ -50,48 +50,48 @@ define('APPSECRET', '6b43fca63feac04649542fae733782de');
 
 
 define('menu', '{
-  "button": [
-    {
-      "name": "成功案例",
-      "type": "click",
-      "key": "CGAL"
-    },
-    {
-      "name": "我要报名",
-      "sub_button": [
+    "button": [
         {
-          "name": "报名须知",
-          "type": "view",
-          "url":"http://www.baidu.com"
+            "name": "成功案例",
+            "type": "click",
+            "key": "CGAL"
         },
         {
-          "name": "立即报名",
-          "type": "view",
-          "url":"http://www.baidu.com"
+            "name": "我要报名",
+            "sub_button": [
+                {
+                    "name": "报名须知",
+                    "type": "view",
+                    "url": "http://121.42.165.222/form/helper"
+                },
+                {
+                    "name": "立即报名",
+                    "type": "view",
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx809c63746bcf1d76&redirect_uri=http://www.baidu.com&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+                }
+            ]
+        },
+        {
+            "name": "关于我们",
+            "sub_button": [
+                {
+                    "name": "创业红娘",
+                    "type": "view",
+                    "url": "http://121.42.165.222/about/cyhn"
+                },
+                {
+                    "name": "平台简介",
+                    "type": "view",
+                    "url": "http://121.42.165.222/about/ptjj"
+                },
+                {
+                    "name": "投资阵容",
+                    "type": "view",
+                    "url": "http://121.42.165.222/about/tzzr"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "name": "关于我们",
-      "sub_button": [
-        {
-          "name": "创业红娘",
-          "type": "view",
-          "url":"http://www.hao123.com/a/tianqi"
-        },
-        {
-          "name": "平台简介",
-          "type": "view",
-          "url":"http://m.hao123.com/a/tianqi"
-        },
-        {
-          "name": "投资阵容",
-          "type": "view",
-          "url":"http://m.hao123.com/a/tianqi"
-        }
-      ]
-    }
-  ]
+    ]
 }');
 
 

@@ -16,15 +16,6 @@ class UserController extends CI_Controller
         $this->load->model('PersonProjectModel');
     }
 
-    public function index($openId)
-    {
-        if(!isset($openId) || strlen($openId) != 28){
-            $this->load->view('errors/cli/error_404');
-        }else{
-            $this->load->view('form', $openId);
-        }
-    }
-
     public function addUser()
     {
         $openId = $this->input->post('openId');
