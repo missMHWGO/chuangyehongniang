@@ -21,6 +21,12 @@ class FormPersonModel extends CI_Model
         return $this->db->insert_id();
     }
 
+    public function search($id)
+    {
+        $query = $this->db->get_where(FPETABLE, array('Id' => $id));
+        return $query->row_array();
+    }
+
     public function searchAll($limit = FORM_LIMIT, $offset = 0)
     {
         $query = $this->db->get(FPETABLE, $limit, $offset);

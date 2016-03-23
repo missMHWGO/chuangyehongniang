@@ -49,4 +49,55 @@ class UserController extends CI_Controller
             echo toJsonSuccess($personId);
         }
     }
+
+    public function getSimpleList()
+    {
+        $page = ($this->input->get('page') == null)? 0 : $this->input->get('page');
+        $person = $this->FormPersonModel->searchAll(FORM_LIMIT, $page * FORM_LIMIT);
+        $data = array();
+        foreach($person as $key){
+            $projectId = $this->PersonProjectModel->search($key['Id'])['projectId'];
+            $project = $this->FormProjectModel->searchLittle($projectId);
+            array_push($data, array_merge($key, $project));
+        }
+        echo toJsonSuccess($data);
+    }
+
+    public function getDetailInfo($id)
+    {
+        $person = $this->FormPersonModel->search($id);
+        $projectId = $this->PersonProjectModel->search($id)['projectId'];
+        $project = $this->FormProjectModel->search($projectId);
+        $data = array_merge($person, $project);
+        echo toJsonSuccess($data);
+    }
+
+    public function sendEmail($id)
+    {
+        $email = $this->FormPersonModel->search($id)['email'];
+        $this->load->library('email');
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'smtp.163.com';
+        $config['smtp_user'] = EMAIL_ACCOUNT;//这里写上你的163邮箱账户
+        $config['smtp_pass'] = EMAIL_PASSWORD;//这里写上你的163邮箱密码
+        $config['mailtype'] = 'html';
+        $config['validate'] = true;
+        $config['priority'] = 1;
+        $config['crlf']  = "\r\n";
+        $config['smtp_port'] = 25;
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+
+        $this->email->initialize($config);
+        $this->email->from(EMAIL_ACCOUNT, '创业红娘公益服务中心');//发件人
+        $this->email->to($email);
+        $this->email->message('');//正文
+        $this->email->attach('/res/cyhn.docx');
+        if ( ! $this->email->send())
+        {
+            echo toJsonFail(FAIL_TO_SEND_MAIL);
+        }else{
+            echo toJsonSuccessNoData();
+        }
+    }
 }

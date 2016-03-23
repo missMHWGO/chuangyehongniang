@@ -59,5 +59,8 @@ $route['about/cyhn']['GET'] = 'Welcome/cyhn';
 $route['about/ptjj']['GET'] = 'Welcome/ptjj';
 $route['about/tzzr']['GET'] = 'Welcome/tzzr';
 $route['form']['GET'] = 'Welcome/OAuth';
-//$route['form/(:any)']['GET'] = 'Welcome/form/$1';
+
+$route['users']['GET'] = 'UserController/getSimpleList';
+$route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';
 $route['users']['POST'] = 'UserController/addUser';
+$route['users/email/(:num)']['POST'] = 'UserController/sendEmail/$1';
