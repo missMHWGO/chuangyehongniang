@@ -57,12 +57,19 @@ class Welcome extends CI_Controller {
 		$this->load->view('helper');
 	}
 
-	public function about($index)
+	public function cyhn()
 	{
-		if($index != 'cyhn' && $index != 'ptjj' && $index != 'tzzr'){
-			$this->load->view('errors/cli/error_404');
-		}
-		$this->load->view($index);
+		$this->load->view('about/cyhn');
+	}
+
+	public function ptjj()
+	{
+		$this->load->view('about/ptjj');
+	}
+
+	public function tzzr()
+	{
+		$this->load->view('about/tzzr');
 	}
 
 }
