@@ -7,6 +7,16 @@
  */
 $config = array();
 
+define('SUCCESS', 1);
+define('FAIL', 0);
+define('NO_INPUT', 2);
+define('FAIL_TO_INSERT', 3);
+define('FAIL_TO_DELETE', 4);
+define('FAIL_TO_UPDATE', 5);
+define('INVALID_INPUT', 6);
+
+define('BASE_PATH', 'http://121.42.165.222');
+
 define('FPETABLE', 'form_person');
 define('FPRTABLE', 'form_project');
 define('PPTABLE', 'person_project');

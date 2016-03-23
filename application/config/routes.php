@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['wx'] = 'wx/BaseController/judge';
-$route['test'] = 'wx/test/test';
+$route['form/(:any)'] = 'UserController/index/$1';

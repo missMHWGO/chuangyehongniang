@@ -21,7 +21,7 @@ class FormPersonModel extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function search($limit = FORM_LIMIT, $offset = 0)
+    public function searchAll($limit = FORM_LIMIT, $offset = 0)
     {
         $query = $this->db->get(FPETABLE, $limit, $offset);
         return $query->result_array();
