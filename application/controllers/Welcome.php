@@ -26,9 +26,19 @@ class Welcome extends CI_Controller {
 	public function OAuth()
 	{
 		if (isset($_GET['code'])){
-			echo $_GET['code'];
+			$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$_GET['code']."&grant_type=authorization_code";
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_HEADER, 0);
+			$output = curl_exec($ch);
+			curl_close($ch);
+			$jsonInfo = json_decode($output, true);
+			$openId =  $jsonInfo["openid"];
+			$this->form($openId);
 		}else{
-			echo "NO CODE";
+			$this->load->view('errors/cli/error_404');
 		}
 	}
 
