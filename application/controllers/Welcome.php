@@ -23,13 +23,22 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function OAuth()
+	{
+		if (isset($_GET['code'])){
+			echo $_GET['code'];
+		}else{
+			echo "NO CODE";
+		}
+	}
+
 	public function form($openId)
 	{
-//		if(!isset($openId) || strlen($openId) != 28){
-//			$this->load->view('errors/cli/error_404');
-//		}else{
+		if(!isset($openId) || strlen($openId) != 28){
+			$this->load->view('errors/cli/error_404');
+		}else{
 			$this->load->view('form', $openId);
-//		}
+		}
 	}
 
 	public function formHelper()
