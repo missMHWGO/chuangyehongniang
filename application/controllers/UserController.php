@@ -72,6 +72,21 @@ class UserController extends CI_Controller
         echo toJsonSuccess($data);
     }
 
+    public function deleteUser($id)
+    {
+        $this->db->trans_start();
+        $projectId = $this->PersonProjectModel->search($id)['projectId'];
+        $this->PersonProjectModel->delete($id);
+        $this->FormPersonModel->delete($id);
+        $this->FormProjectModel->delete($projectId);
+        $this->db->trans_complete();
+        if($this->db->trans_status() === false){
+            echo toJsonFail(FAIL_TO_DELETE);
+        }else{
+            echo toJsonSuccessNoData();
+        }
+    }
+
     public function sendEmail($id)
     {
         $email = $this->FormPersonModel->search($id)['email'];
