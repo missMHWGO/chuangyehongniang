@@ -22,7 +22,7 @@ define('FPETABLE', 'form_person');
 define('FPRTABLE', 'form_project');
 define('PPTABLE', 'person_project');
 
-define('FORM_LIMIT', 10);
+define('FORM_LIMIT', 2);
 
 define('TOKEN', '6bfcfbd320097d65d72d71e7854b0a23');
 define('APPKEY', 'wx809c63746bcf1d76');
