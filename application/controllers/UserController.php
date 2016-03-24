@@ -23,7 +23,7 @@ class UserController extends CI_Controller
         $phone = $this->input->post('phone');
         $email = $this->input->post('email');
         $school = $this->input->post('school');
-        $city = $this->input->post('city');
+        $city = $this->input->post('province').$this->input->post('city');
         $projectName = $this->input->post('projectName');
         $projectArea = $this->input->post('projectArea');
         $projectInfo = $this->input->post('projectInfo');
