@@ -28,8 +28,8 @@ define('TOKEN', '6bfcfbd320097d65d72d71e7854b0a23');
 define('APPKEY', 'wx809c63746bcf1d76');
 define('APPID', 'wx809c63746bcf1d76');
 define('APPSECRET', '6b43fca63feac04649542fae733782de');
-define('EMAIL_ACCOUNT', '');
-define('EMAIL_PASSWORD', '');
+define('EMAIL_ACCOUNT', 'chuangyehongniang@163.com');
+define('EMAIL_PASSWORD', 'cyhn2016');
 
 
 //define('TEXT_XML', "<xml>".

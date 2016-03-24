@@ -77,25 +77,28 @@ class UserController extends CI_Controller
         $email = $this->FormPersonModel->search($id)['email'];
         $this->load->library('email');
         $config['protocol'] = 'smtp';
+        $config['mailpath'] = "/usr/bin/sendmail";
         $config['smtp_host'] = 'smtp.163.com';
         $config['smtp_user'] = EMAIL_ACCOUNT;//这里写上你的163邮箱账户
         $config['smtp_pass'] = EMAIL_PASSWORD;//这里写上你的163邮箱密码
-        $config['mailtype'] = 'html';
+        $config['smtp_port'] = 25;
+        $config['mailtype'] = 'text';
         $config['validate'] = true;
         $config['priority'] = 1;
         $config['crlf']  = "\r\n";
-        $config['smtp_port'] = 25;
         $config['charset'] = 'utf-8';
         $config['wordwrap'] = TRUE;
 
         $this->email->initialize($config);
         $this->email->from(EMAIL_ACCOUNT, '创业红娘公益服务中心');//发件人
         $this->email->to($email);
-        $this->email->message('');//正文
-        $this->email->attach('/res/cyhn.docx');
+        $this->email->subject('"创业红娘"创业项目信息登记表');
+        $this->email->message('这是一条测试邮件');//正文
+        $this->email->attach('./res/cyhn.docx');
         if ( ! $this->email->send())
         {
             echo toJsonFail(FAIL_TO_SEND_MAIL);
+//            echo $this->email->print_debugger();   //调试用
         }else{
             echo toJsonSuccessNoData();
         }
