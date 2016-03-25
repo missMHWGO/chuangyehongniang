@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet " type="text/css" href="/res/css/detail.css">
-    <script src="/res/js/main.js"></script>
+    <link rel="stylesheet " type="text/css" href="../res/css/detail.css">
+    <script src="../res/js/main.js"></script>
     <title>detail</title>
 </head>
 <body>
