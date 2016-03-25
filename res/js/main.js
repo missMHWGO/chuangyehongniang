@@ -4,12 +4,20 @@ var obj3;
 var text;
 var emailId;
 var detailId;
+<<<<<<< HEAD
 var deleteId;
 $(document).ready(function () {
     personGet();
     returnToM();
     $('.informationGroup').hide();
     $('#returnToM').hide();
+=======
+
+$(document).ready(function () {
+    personGet();
+    $('.informationGroup').hide();
+
+>>>>>>> 596bb3f2309eeeb6a9eba24bc933c4aa8f50ef03
 });
 function personGet() {
     $.get("http://localhost/cyhn2/users", {
@@ -98,6 +106,7 @@ function emailGive() {
     });
 }
 function detailShow() {
+<<<<<<< HEAD
     $.get("http://localhost/cyhn2/users/" + detailId, function (res) {
         $('.informationGroup').show();
         $('#returnToM').show();
@@ -127,5 +136,12 @@ function returnToM() {
     });
 }
 function tableDelete() {
+=======
+    $.get("http://localhost/cyhn2/users/1", function (res) {
+        $('.informationGroup').show();
+        $('#tableList').hide();
+
+    });
+>>>>>>> 596bb3f2309eeeb6a9eba24bc933c4aa8f50ef03
 
 }
