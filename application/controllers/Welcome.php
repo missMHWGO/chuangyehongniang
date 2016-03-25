@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
 			$this->load->view('errors/cli/error_404');
 		}else{
 			$data['openId'] = $openId;
-			$this->load->view('form', $data);
+			$this->load->view('home', $data);
 		}
 	}
 
