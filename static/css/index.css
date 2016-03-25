@@ -44,8 +44,7 @@ label {
     position: absolute;
     top: 0;
     left: 0;
-    height: 1.96rem;
-    line-height: 1.96rem;
+    line-height: 2.06rem;
     font-size: 0.60rem;
     text-align: right;
     color: #000000;
@@ -79,9 +78,8 @@ label {
 }
 
 .item {
-    height: 1.96rem;
     position: relative;
-    padding: 0 0.71rem 0 0.71rem;
+    padding: 0 0.81rem 0 0.71rem;
     margin-bottom: 1rem;
 }
 

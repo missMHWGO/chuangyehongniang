@@ -226,7 +226,7 @@
                          $('#money').val("0");
                      }
                      form.submit();
-                     window.location.href = "./success.html";
+                     window.location.href = "http://cyhn.aliapp.com/application/views/success.php";
                  } else {
                      alert("请完成您的信息填写！");
                  }
