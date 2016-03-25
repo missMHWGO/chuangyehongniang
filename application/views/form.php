@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="创业红娘报名">
     <meta name="keywords" content="创业红娘">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <!-- 全屏显示 WebApp，隐藏 Safari 导航栏以及工具栏 -->
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <!-- 屏蔽iPhone下的拨号链接-->
