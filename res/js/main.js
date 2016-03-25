@@ -82,6 +82,7 @@ function personGet() {
             $('#detail' + k).append(aDetail);
             var delBtn = document.createElement("img");
             delBtn.id = 'del' + peopleList[k].Id;
+            delBtn.src='../img/delete.png';
             (function (k) {
                 delBtn.addEventListener("click", function (d) {
                     deleteId = peopleList[k].Id;
@@ -127,5 +128,11 @@ function returnToM() {
     });
 }
 function tableDelete() {
-
+    $.ajax({
+        url: 'http://localhost/cyhn2/users/'+deleteId,
+        type: 'DELETE',
+        success:function(){
+            alert("删除成功");
+        }
+    });
 }
