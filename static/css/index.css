@@ -152,9 +152,12 @@ p {
     width: 4.5rem;
     height: 1.7rem;
     line-height: 1.7rem;
-    float: left;
     margin: 0 1.5rem 0.8rem 0.8rem;
     text-align: center;
+}
+
+.proDev {
+    float: left;
 }
 
 .proDev input,.prodev input {
@@ -167,8 +170,9 @@ p {
 
 #much input {
     float: right;
-    width: 2.6rem;
-    margin: 0 1.4rem 0.8rem 0.8rem;
+    width: 3.3rem;
+    margin: 0 0.8rem 0.8rem 0.8rem;
+    padding-left: 4rem;
 }
 
 #much label {
@@ -226,6 +230,7 @@ input::-webkit-input-placeholder {
     border-color: #3bac9f;
     color: #fcfcfc;
 }
+
 .hidden{
     display: none;
 }
