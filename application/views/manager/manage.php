@@ -5,8 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet " type="text/css" href="../res/css/manage.css">
     <script src="../res/js/jquery-2.2.0.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet " type="text/css" href="../res/css/manage.css">
     <script src="../res/js/main.js"></script>
     <title>manage</title>
 </head>
@@ -36,7 +38,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input type="text" readonly="readonly" id="school">
             <label class="specialLine1" for="city">所在城市</label>
             <input type="text" readonly="readonly" id="city">
-
         </div>
         <div class="itemCon">
             <h4 style="margin-bottom: 8px;margin-top: 50px">项目信息</h4>
@@ -63,6 +64,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-
+<!--删除确认框-->
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    确认删除
+                </h4>
+            </div>
+            <div class="modal-body">
+                确认删除吗？该操作不能撤回
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">取消
+                </button>
+                <button type="button" class="btn btn-primary" id="delConfirm" style="background-color: #bcbcbc;border-color: #cecece">
+                    确认
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
 </body>
 </html>

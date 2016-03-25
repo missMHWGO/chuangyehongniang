@@ -83,16 +83,21 @@ function personGet() {
             var delBtn = document.createElement("img");
             delBtn.id = 'del' + peopleList[k].Id;
             delBtn.src='../img/delete.png';
+
             (function (k) {
                 delBtn.addEventListener("click", function (d) {
                     deleteId = peopleList[k].Id;
-                    tableDelete();
+                    $('#delModal').modal('show');
+                    $('#delConfirm').click(function(){
+                        tableDelete();
+                    });
                 }, false);
             })(k);
             $('#delete' + k).append(delBtn);
         }
     });
 }
+
 function emailGive() {
     $.post("http://localhost/cyhn2/users/" + emailId + "/email", function () {
         alert("邮件已经发送成功！")
