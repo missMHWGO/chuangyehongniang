@@ -202,9 +202,6 @@ p {
 input::-webkit-input-placeholder {
     color: #D0021B;
 }
-#proMon input::-webkit-input-placeholder,#much input::-webkit-input-placeholder {
-    color: #786e6e;
-}
 
 #success {
     margin: 0;
@@ -232,4 +229,7 @@ input::-webkit-input-placeholder {
     background-color: #3bac9f;
     border-color: #3bac9f;
     color: #fcfcfc;
+}
+.hidden{
+    display: none;
 }
