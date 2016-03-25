@@ -8,6 +8,7 @@ var deleteId;
 $(document).ready(function () {
     personGet();
     returnToM();
+    tableColor();
     $('.informationGroup').hide();
     $('#returnToM').hide();
 });
@@ -19,10 +20,10 @@ function personGet() {
         var obj2 = obj1.data;
         peopleList = obj2.users;
         var t = "";
-        t += '<table data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
+        t += '<table id="personTable" data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
         t += " <tr>" +
-            "<td >姓名</td>" +
-            "<td >电话</td>" +
+            "<td class='name' >姓名</td>" +
+            "<td  class='phone'>电话</td>" +
             "<td>邮箱</td>" +
             "<td>学校</td>" +
             "<td>城市</td>" +
@@ -60,16 +61,16 @@ function personGet() {
             $(this).attr('id', 'delete' + h);
         });
         for (var k = 0; k < peopleList.length; k++) {
-            var button = document.createElement("button");
-            button.id = 'email' + peopleList[k].Id;
-            button.innerHTML = '发送报名表';
+            var aEmail = document.createElement("a");
+        aEmail.id = 'email' + peopleList[k].Id;
+            aEmail.innerHTML = '发送报名表';
             (function (k) {
-                button.addEventListener("click", function (f) {
+                aEmail.addEventListener("click", function (f) {
                     emailId = peopleList[k].Id;
                     emailGive();
                 }, false);
             })(k);
-            $('#sendEmail' + k).append(button);
+            $('#sendEmail' + k).append(aEmail);
             var aDetail = document.createElement("a");
             aDetail.id = 'a' + peopleList[k].Id;
             aDetail.innerHTML = '详情';
@@ -140,4 +141,8 @@ function tableDelete() {
             alert("删除成功");
         }
     });
+}
+function tableColor(){
+    $('tr').css("background-color", "#333333");
+    $('tr:odd' ).css("background-color", "#000000");
 }

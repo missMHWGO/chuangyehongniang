@@ -21,14 +21,28 @@ h1 {
 }
 
 #tableList {
+    font-size: 20px;
     width: 960px;
     position: fixed;
-    top: 128px;
+    top: 94px;
     left: 50%;
-transform: translate(-50%);
+    transform: translate(-50%);
     text-align: center;
     vertical-align: middle;
 }
+
+table{
+
+    border-collapse: collapse;
+    border: none;
+}
+
+tr, td {
+    border-bottom: solid #cecece 1px;
+    color: #333333;
+    height: 50px;
+}
+
 .informationGroup {
     font-size: 12px;
     position: fixed;
@@ -40,7 +54,6 @@ transform: translate(-50%);
     background-color: #efefef;
     height: 600px;
     width: 800px;
-
 }
 
 label {
@@ -82,7 +95,6 @@ hr {
 .informationCon {
     padding-left: 20px;
 
-
 }
 
 .itemCon {
@@ -99,18 +111,18 @@ input {
     border-color: #cecece;
     border-radius: 3px;
     background-color: #fcfcfc;
-
 }
 
 h3 {
     margin: 0;
     padding-top: 15px;
 }
-#returnToM{
+
+#returnToM {
     position: fixed;
     bottom: 0;
-    background-color: #00CC00;
-    color: #0000FF;
+    background-color: #000000;
+    color: #c8e3d7;
 }
 
 
