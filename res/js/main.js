@@ -1,16 +1,24 @@
 var pageNumber;
 var peopleList;
+var obj1;
+var obj2;
+var text;
 
-$(document).ready(function(){
-personGet();
+$(document).ready(function () {
+    personGet();
 });
-function personGet(){
-    $.get("http://localhost/cyhn2/users",{
-        page:0
-    },function(result){
-var obj=JSON.parse(result);
-        peopleList = obj.data;
-        var t = "";
+function personGet() {
+    $.get("http://localhost/cyhn2/users", {
+        page: 0
+    }, function (result) {
+         obj1 = JSON.parse(result);
+        obj2=obj1.data;
+        var obj3=obj2.count;
+        for( var i=0;i<2;i++){
+            text=obj2+"."+i;
+            alert(text);
+        }
+    var t = "";
         t += '<table data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
         t += " <tr>" +
             "<td >姓名</td>" +
@@ -24,6 +32,7 @@ var obj=JSON.parse(result);
             "<td>操作</td>" +
             "<td>删除</td>" +
             "</tr>";
+
         for (var i = 0; i < peopleList.length; i++) {
             t += "<tr >";
             t += "<div>";
@@ -34,23 +43,28 @@ var obj=JSON.parse(result);
             t += "<td>" + peopleList[i].city + "</td>";
             t += "<td>" + peopleList[i].projectName + "</td>";
             t += "<td>" + peopleList[i].projectArea + "</td>";
-            t += "<td>"+"<div class='detail'></div>"+ "</td>";
-            t += "<td>"+"<div class='sendEmail'></div>"+ "</td>";
+            t += "<td>" + "<div class='detail'></div>" + "</td>";
+            t += "<td>" + "<div class='sendEmail'></div>" + "</td>";
             t += "</div>";
             t += "</tr>";
         }
         t += "</table>";
         $('#tableList').html(t);
-        $('.detail').each(function(q) {
+        $('.detail').each(function (q) {
             $(this).attr('id', 'detail' + q);
-            // You can also add more code here if you wish to manipulate each IMG element further
         });
-
-        for(var k=0;k<peopleList.length;k++){
+        $('.sendEmail').each(function (e) {
+            $(this).attr('id', 'sendEmail' + e);
+        });
+        for (var k = 0; k < peopleList.length; k++) {
             var button = document.createElement("button");
             button.id = peopleList[k].Id;
-            button.innerHTML = '123';
-            $('.sendEmail').append(button);
+            button.innerHTML = '发送报名表';
+            $('#sendEmail' + k).append(button);
+            var aDetail = document.createElement("a");
+            aDetail.id = peopleList[k].Id;
+            aDetail.innerHTML = '详情';
+            $('#detail' + k).append(aDetail);
         }
     });
 }
