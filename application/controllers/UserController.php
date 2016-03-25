@@ -60,7 +60,8 @@ class UserController extends CI_Controller
             $project = $this->FormProjectModel->searchLittle($projectId);
             array_push($data, array_merge($key, $project));
         }
-        echo toJsonSuccess($data);
+        $count = $this->FormPersonModel->getCount();
+        echo toJsonSuccess(array_merge($data, array('count' => $count)));
     }
 
     public function getDetailInfo($id)
