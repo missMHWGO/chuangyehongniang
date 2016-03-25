@@ -153,12 +153,8 @@ p {
     height: 1.7rem;
     line-height: 1.7rem;
     float: left;
-    margin: 0 1.7rem 0.8rem 0.8rem;
+    margin: 0 1.5rem 0.8rem 0.8rem;
     text-align: center;
-}
-
-.proDev span,.prodev span{
-    /*line-height:*/
 }
 
 .proDev input,.prodev input {
@@ -172,7 +168,7 @@ p {
 #much input {
     float: right;
     width: 2.6rem;
-    margin: 0 0.8rem 0.8rem 0.8rem;
+    margin: 0 1.4rem 0.8rem 0.8rem;
 }
 
 #much label {
