@@ -1,0 +1,20 @@
+html{
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+body{
+    margin: 0;
+}
+nav{
+    position: fixed;
+    width: 1440px;
+    height: 64px;
+    margin: 0;
+    background-color: rgba(38, 47, 58, 0.97);
+    top: 0;
+}
+h1{
+    color: #ffffff;
+    margin-left: 70px;
+}
