@@ -30,10 +30,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-<form method="post" action=" http://cyhn.aliapp.com/users" name="form1">
+    <div class="container">
+        <form method="post" action=" http://cyhn.aliapp.com/users" name="form1">
     <div id="basicInfo">
         <div class="title">
-            <p>个人信息</p>
+            <p>一、个人信息</p>
         </div>
         <section>
             <div class="item">
@@ -65,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div id="proProfile">
         <div class="title">
-            <p>项目信息</p>
+            <p>二、项目信息</p>
         </div>
         <section>
             <div class="item">
@@ -96,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label for="projectArea">项目方向</label>
             </div>
             <div>
-                <textarea id="proIntro" name="projectInfo" placeholder="30字以内" maxlength="30"></textarea>
+                <textarea id="proIntro" name="projectInfo" placeholder="50字以内" maxlength="50"></textarea>
                 <label for="projectInfo" id="proIntrodution">项目简介</label>
             </div>
             <div class="proDevelop">
@@ -106,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="proDev">
                     <input type="radio" value="1" name="projectStatus"><span>已有样品</span></div>
                 <div class="proDev">
-                    <input type="radio" value="2" name="projectStatus" checked="checked"><span>已进入市场</span></div>
+                    <input type="radio" value="2" name="projectStatus"><span>已进入市场</span></div>
                 <div class="proDev">
                     <input type="radio" value="3" name="projectStatus"><span>已放弃</span></div>
             </div>
@@ -116,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="text" name="projectCosted" id="money">
                     <label for="money">融资数额</label>
                 </div>
-                <div class="prodev"><input type="radio" value="0" name="projectIfCost" checked="checked"><span>是</span></div>
+                <div class="prodev"><input type="radio" value="0" name="projectIfCost"><span>是</span></div>
                 <div class="prodev"><input type="radio" value="1" name="projectIfCost"><span>否</span></div>
                 <div class="item" id="proMon">
                     <input type="text" name="projectCost" id="preMoney">
@@ -130,6 +131,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <input class="hidden" name="openId" id="openId" value=<?php echo $openId; ?> >
 </form>
+    </div>
+
 <script>
     first("province", "city", "form1", 0, 0);
 </script>

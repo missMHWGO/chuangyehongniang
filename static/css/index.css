@@ -1,8 +1,13 @@
 body {
     margin: 0;
     font-family: SimHei;
+    padding: 0.71rem;
+    background-color: #f2f2f2;
 }
-
+.container{
+    background-color: #fcfcfc;
+    border-radius: 0.36rem;
+}
 #basicInfo {
     position: relative;
     margin: 0;
@@ -12,19 +17,20 @@ body {
 
 section {
     width: 100%;
-    margin-top: 0.75rem;
+    margin-top: 1.78rem;
     font-size: 0.75rem;
 }
 
 input {
     position: relative;
-    width: 9.9rem;
-    height: 1.7rem;
-    border: 0.09rem solid #D3D3D3;
+    width: 9.5rem;
+    height: 1.96rem;
+    line-height: 1.96rem;
+    border: 0.05rem solid #D3D3D3;
     border-radius: 0.2rem;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #786e6e;
-    padding-left: 4.5rem;
+    padding-left: 3.64rem;
     opacity: 0.87;
     filter: Alpha(opacity=87);
 }
@@ -38,62 +44,60 @@ label {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4.6rem;
-    height: 1.7rem;
-    line-height: 1.7rem;
-    font-size: 0.75rem;
+    height: 1.96rem;
+    line-height: 1.96rem;
+    font-size: 0.60rem;
     text-align: right;
     color: #000000;
+    margin-left: 1.42rem;
 }
 
 #proMon {
     height: auto;
 }
 
-#proMon label {
-    width: 5.2rem;
-}
-
 #proMon input {
-    padding-left: 5.3rem;
-    width: 9rem;
+    padding-left: 4.3rem;
+    width: 8.8rem;
 }
 
 .title {
     position: relative;
     height: 1.2rem;
     width: auto;
-    margin-top: 0.75rem;
     margin-left: 0.75rem;
 }
 
 .title p {
-    position: absolute;
-    margin: 0;
+    margin: 0 0 0.71rem 0;
+    padding-top: 0.89rem;
     height: 1.2rem;
     line-height: 1.2rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: #404040;
     font-weight: bold;
 }
 
 .item {
-    width: 14.4rem;
-    height: 1.7rem;
+    height: 1.96rem;
     position: relative;
-    padding: 0 0.8rem;
-    margin-bottom: 0.75rem;
+    padding: 0 0.71rem 0 0.71rem;
+    margin-bottom: 1rem;
 }
 
 #city,
 #province {
-    width: 4.5rem;
-    height: 1.7rem;
-    border: 0.09rem solid #B8B8B8;
+    width: 3.89rem;
+    height: 1.96rem;
+    border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #786e6e;
     padding-left: 0.5rem;
+}
+
+#proProfile .title p {
+    margin-top: 2.3rem;
 }
 
 #province {
@@ -106,10 +110,10 @@ label {
 #proDir {
     float: right;
     width: 9.5rem;
-    height: 1.7rem;
-    border: 0.09rem solid #B8B8B8;
+    height: 1.96rem;
+    border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #786e6e;
     margin: 0 0 0 0.5rem;
     padding-left: 0.5rem;
@@ -118,25 +122,22 @@ label {
 #proIntro {
     position: relative;
     margin-left: 0.8rem;
-    margin-top: 0.8rem;
-    width: 12.9rem;
-    height: 3rem;
-    font-size: 0.75rem;
-    border: 0.09rem solid #B8B8B8;
+    width: 11.9rem;
+    height: 6rem;
+    font-size: 0.6rem;
+    border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
-    padding: 1.5rem 0.7rem 0rem 0.7rem;
+    padding: 1.5rem 0.53rem 0rem 0.53rem;
+    margin-bottom: 0.71rem;
 }
 
 #proIntrodution {
-    margin-top: 24.2rem;
+    margin-top: 26.8rem;
+    margin-left: 2.13rem;
 }
 
 p {
-    width: 4.6rem;
-    height: 1.7rem;
-    line-height: 1.7rem;
-    font-size: 0.75rem;
-    text-align: right;
+    font-size: 0.6rem;
     color: #000000;
     margin-left: 0.8rem;
 }
@@ -145,14 +146,16 @@ p {
 .proDevelop .item {
     overflow: hidden;
 }
-
+.proDevelop p{
+    margin-top: 0.62rem;
+}
 .proDev,.prodev {
-    border: 0.09rem solid #B8B8B8;
+    border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
-    width: 4.5rem;
-    height: 1.7rem;
-    line-height: 1.7rem;
-    margin: 0 1.5rem 0.8rem 0.8rem;
+    width: 4.36rem;
+    height: 1.96rem;
+    line-height: 1.96rem;
+    margin: 0 1.5rem 0.71rem 0.8rem;
     text-align: center;
 }
 
@@ -163,6 +166,9 @@ p {
 .proDev input,.prodev input {
     display: none;
 }
+span {
+    font-size: 0.6rem;
+}
 
 #much {
     position: relative;
@@ -170,30 +176,30 @@ p {
 
 #much input {
     float: right;
-    width: 3.3rem;
-    margin: 0 0.8rem 0.8rem 0.8rem;
-    padding-left: 4rem;
+    width: 2.8rem;
+    margin: 0 0.71rem 0.8rem 0.8rem;
+    padding-left: 3.5rem;
 }
 
 #much label {
-    margin-left: 7rem;
+    margin-left: 8rem;
 }
 
 #proSubmit {
     width: 14.4rem;
-    margin: 0.96rem auto 1rem auto;
+    margin: 0.7rem auto 1rem auto;
 }
 
 #proSubmit input {
-    margin-left: 0;
-    width: 14.4rem;
+    margin-left: 0.71rem;
+    width: 13.1rem;
 }
 
 .submitIt {
     background-color: #3bac9f;
     color: #fcfcfc;
     width: 13.6rem;
-    height: 1.7rem;
+    height: 1.96rem;
     padding: 0;
     margin-left: 1.2rem;
     border: 0;

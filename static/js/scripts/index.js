@@ -139,7 +139,6 @@
                  $("#city")[0].style.display = 'inline';
              })
 
-             $($('.proDev')[2]).addClass("check");
              $(document).on('touchend', '.proDev', function() {
                  var self = this,
                      num = $(this).index() - 1,
@@ -150,7 +149,7 @@
                  $(this).addClass("check");
              })
 
-             $($('.prodev')[0]).addClass("check");
+             $("#much")[0].style.display = 'none';
              $(document).on('touchend', '.prodev', function() {
                  var self = this,
                      num = $(this).index() - 2,
@@ -166,7 +165,7 @@
                  }
              })
 
-             .on('click', '.submitIt', function() {
+             $(document).on('click', '.submitIt', function() {
                  var self = this,
                      basicInput = [],
                      basicFormLength = 17,
@@ -196,9 +195,38 @@
                      }
                  }
 
-                 if (isBlank == false) {
+                function check_proDev() {
+                     var isCheck = false;
+                     for (var i = 0; i < 4; i++) {
+                         var temp = form.projectStatus[i];
+                         if (temp.checked == true) {
+                             isCheck = true;
+                             break;
+                         }
+                     }
+                     return isCheck;
+                 }
+                 checkProDev = check_proDev();
+
+                function check_prodev() {
+                     var isCheck = false;
+                     for (var i = 0; i < 2; i++) {
+                         var temp = form.projectIfCost[i];
+                         if (temp.checked == true) {
+                             isCheck = true;
+                             break;
+                         }
+                     }
+                     return isCheck;
+                 }
+                 checkProdev = check_prodev();
+
+                 if (isBlank == false && checkProDev == true && checkProdev == true) {
+                     if ($('#money').val() == "") {
+                         $('#money').val("0");
+                     }
                      form.submit();
-                     window.location.href = "./form/success";
+                     window.location.href = "./success.html";
                  } else {
                      alert("请完成您的信息填写！");
                  }
