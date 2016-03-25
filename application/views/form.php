@@ -128,7 +128,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="proSubmit">
         <input class="submitIt" type="button" value="提交报名表">
     </div>
-    <input type="hidden" name="openId" value="" >
 </form>
 <script>
     first("province", "city", "form1", 0, 0);
