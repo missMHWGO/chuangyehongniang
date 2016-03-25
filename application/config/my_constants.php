@@ -66,12 +66,12 @@ define('menu', '{
                 {
                     "name": "报名须知",
                     "type": "view",
-                    "url": "http://121.42.165.222/form/helper"
+                    "url": "http://cyhn.aliapp.com/form/helper"
                 },
                 {
                     "name": "立即报名",
                     "type": "view",
-                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx809c63746bcf1d76&redirect_uri=http://dianmobile.net/form/&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx809c63746bcf1d76&redirect_uri=http://cyhn.aliapp.com/form/&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
                 }
             ]
         },
@@ -81,17 +81,17 @@ define('menu', '{
                 {
                     "name": "创业红娘",
                     "type": "view",
-                    "url": "http://121.42.165.222/about/cyhn"
+                    "url": "http://cyhn.aliapp.com/about/cyhn"
                 },
                 {
                     "name": "平台简介",
                     "type": "view",
-                    "url": "http://121.42.165.222/about/ptjj"
+                    "url": "http://cyhn.aliapp.com/about/ptjj"
                 },
                 {
                     "name": "投资阵容",
                     "type": "view",
-                    "url": "http://121.42.165.222/about/tzzr"
+                    "url": "http://cyhn.aliapp.com/about/tzzr"
                 }
             ]
         }
