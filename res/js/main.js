@@ -4,29 +4,12 @@ var obj3;
 var text;
 var emailId;
 var detailId;
-<<<<<<< HEAD
 var deleteId;
 $(document).ready(function () {
     personGet();
     returnToM();
     $('.informationGroup').hide();
     $('#returnToM').hide();
-=======
-<<<<<<< HEAD
-var deleteId;
-$(document).ready(function () {
-    personGet();
-    returnToM();
-    $('.informationGroup').hide();
-    $('#returnToM').hide();
-=======
-
-$(document).ready(function () {
-    personGet();
-    $('.informationGroup').hide();
-
->>>>>>> 596bb3f2309eeeb6a9eba24bc933c4aa8f50ef03
->>>>>>> bcf111d0359ab084abda616617a8e4790e6f5cdd
 });
 function personGet() {
     $.get("http://localhost/cyhn2/users", {
@@ -99,10 +82,6 @@ function personGet() {
             $('#detail' + k).append(aDetail);
             var delBtn = document.createElement("img");
             delBtn.id = 'del' + peopleList[k].Id;
-<<<<<<< HEAD
-            delBtn.src='../img/delete.png';
-=======
->>>>>>> bcf111d0359ab084abda616617a8e4790e6f5cdd
             (function (k) {
                 delBtn.addEventListener("click", function (d) {
                     deleteId = peopleList[k].Id;
@@ -110,7 +89,6 @@ function personGet() {
                 }, false);
             })(k);
             $('#delete' + k).append(delBtn);
-<<<<<<< HEAD
         }
     });
 }
@@ -149,59 +127,5 @@ function returnToM() {
     });
 }
 function tableDelete() {
-    $.ajax({
-        url: 'http://localhost/cyhn2/users/' + deleteId,
-        type: 'DELETE',
-        success: function () {
-            alert("删除成功！");
-            personGet();
-=======
->>>>>>> bcf111d0359ab084abda616617a8e4790e6f5cdd
-        }
-    });
-}
-function emailGive() {
-    $.post("http://localhost/cyhn2/users/" + emailId + "/email", function () {
-        alert("邮件已经发送成功！")
-    });
-}
-function detailShow() {
-<<<<<<< HEAD
-    $.get("http://localhost/cyhn2/users/" + detailId, function (res) {
-        $('.informationGroup').show();
-        $('#returnToM').show();
-        $('#tableList').hide();
-        var pro = JSON.parse(res);
-        var detailList = pro.data;
-        $('#name').val(detailList.name);
-        $('#phone').val(detailList.phone);
-        $('#email').val(detailList.email);
-        $('#school').val(detailList.school);
-        $('#city').val(detailList.city);
-        $('#itemName').val(detailList.projectName);
-        $('#direction').val(detailList.projectArea);
-        $('#productionStage').val(detailList.projectInfo);
-        $('#introduction').val(detailList.projectStatus);
-        $('#ifFinance').val(detailList.projectIfCost);
-        $('#amountFormer').val(detailList.projectCosted);
-        $('#amountFuture').val(detailList.projectCost);
-        returnToM();
-    });
-}
-function returnToM() {
-    $('#returnToM').click(function () {
-        $('.informationGroup').hide();
-        $('#tableList').show();
-        $('#returnToM').hide();
-    });
-}
-function tableDelete() {
-=======
-    $.get("http://localhost/cyhn2/users/1", function (res) {
-        $('.informationGroup').show();
-        $('#tableList').hide();
-
-    });
->>>>>>> 596bb3f2309eeeb6a9eba24bc933c4aa8f50ef03
 
 }
