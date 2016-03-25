@@ -61,7 +61,8 @@ class UserController extends CI_Controller
             array_push($data, array_merge($key, $project));
         }
         $count = $this->FormPersonModel->getCount();
-        echo toJsonSuccess(array_merge($data, array('count' => $count)));
+        array_push($data, $count);
+        echo toJsonSuccess($data);
     }
 
     public function getDetailInfo($id)
