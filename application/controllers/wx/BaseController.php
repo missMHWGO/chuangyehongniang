@@ -98,7 +98,7 @@ class BaseController extends CI_Controller
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
                         $newsList = $this->getNewsList($accessToken);
-                        preg_match_all('/\"title\":\"\[.*\].*\",(.*)\"thumb_url\":\".*\"/U', $newsList, $res);
+                        preg_match_all('/\"title\":\"\【.*\】.*\",(.*)\"thumb_url\":\".*\"/U', $newsList, $res);
                         $contentStr = array();
                         $i = 0;
                         foreach($res[0] as $key){
