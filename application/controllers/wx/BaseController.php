@@ -213,7 +213,8 @@ class BaseController extends CI_Controller
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
         $output = curl_exec($ch);
         curl_close($ch);
-        return str_replace(" ", "", str_replace(PHP_EOL, "", $output));
+        $result = str_replace(" ", "", str_replace(PHP_EOL, "", $output));
+        return $result;
     }
 }
 ?>

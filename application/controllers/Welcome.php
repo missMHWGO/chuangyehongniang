@@ -81,4 +81,9 @@ class Welcome extends CI_Controller {
 		$this->load->view('about/tzzr');
 	}
 
+	public function manage()
+	{
+		$this->load->view('manager/manage');
+	}
+
 }

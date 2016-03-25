@@ -66,3 +66,5 @@ $route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';
 $route['users']['POST'] = 'UserController/addUser';
 $route['users/email/(:num)']['POST'] = 'UserController/sendEmail/$1';
 $route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';
+
+$route['users/manage']['GET'] = 'Welcome/manage';
