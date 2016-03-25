@@ -113,13 +113,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="proDevelop">
                 <p>之前是否融资</p>
                 <div id="much">
-                    <input type="text" name="projectCosted" id="money" placeholder="300万">
+                    <input type="text" name="projectCosted" id="money">
                     <label for="money">融资数额</label>
                 </div>
                 <div class="prodev"><input type="radio" value="0" name="projectIfCost" checked="checked"><span>是</span></div>
                 <div class="prodev"><input type="radio" value="1" name="projectIfCost"><span>否</span></div>
                 <div class="item" id="proMon">
-                    <input type="text" name="projectCost" id="preMoney" placeholder="300万">
+                    <input type="text" name="projectCost" id="preMoney">
                     <label for="preMoney">拟融资数额</label>
                 </div>
             </div>
