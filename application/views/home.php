@@ -14,11 +14,11 @@
     <!-- 设置系统状态栏风格 -->
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <title>提交项目</title>
-    <script type="text/javascript" src="./static/js/lib/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="./static/js/lib/zepto.js"></script>
-    <script type="text/javascript" src="./static/js/lib/veryless.js"></script>
-    <script type="text/javascript" src="./static/js/scripts/city.js"></script>
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css">
+    <script type="text/javascript" src="../../static/js/lib/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../static/js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../static/js/lib/veryless.js"></script>
+    <script type="text/javascript" src="../../static/js/scripts/city.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/index.css">
 </head>
 
 <body>
@@ -125,7 +125,7 @@
     <script>
     first("province", "city", "form1", 0, 0);
     </script>
-    <script type="text/javascript" src="./static/js/scripts/index.js"></script>
+    <script type="text/javascript" src="../../static/js/scripts/index.js"></script>
 </body>
 
 </html>

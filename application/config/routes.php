@@ -59,6 +59,7 @@ $route['about/cyhn']['GET'] = 'Welcome/cyhn';
 $route['about/ptjj']['GET'] = 'Welcome/ptjj';
 $route['about/tzzr']['GET'] = 'Welcome/tzzr';
 $route['form']['GET'] = 'Welcome/OAuth';
+$route['form/success']['GET'] = 'Welcome/success';
 
 $route['users']['GET'] = 'UserController/getSimpleList';
 $route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';

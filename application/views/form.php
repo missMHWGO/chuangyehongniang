@@ -22,20 +22,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- 设置系统状态栏风格 -->
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <title>提交项目</title>
-    <script type="text/javascript" src="./static/js/lib/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="./static/js/lib/zepto.js"></script>
-    <script type="text/javascript" src="./static/js/lib/veryless.js"></script>
-    <script type="text/javascript" src="./static/js/scripts/city.js"></script>
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css">
+    <script type="text/javascript" src="http://cyhn.aliapp.com/static/js/lib/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://cyhn.aliapp.com/static/js/lib/zepto.js"></script>
+    <script type="text/javascript" src="http://cyhn.aliapp.com/static/js/lib/veryless.js"></script>
+    <script type="text/javascript" src="http://cyhn.aliapp.com/static/js/scripts/city.js"></script>
+    <link rel="stylesheet" type="text/css" href=" http://cyhn.aliapp.com/static/css/index.css">
 </head>
 
 <body>
-<form method="post" action="users" name="form1">
+<form method="post" action=" http://cyhn.aliapp.com/users" name="form1">
     <div id="basicInfo">
         <div class="title">
             <p>个人信息</p>
         </div>
-        <input style="display:none" type="text" name="openId" id="openId" value="<?php echo $openId; ?>">
         <section>
             <div class="item">
                 <input type="text" name="name" id="name">
@@ -129,12 +128,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="proSubmit">
         <input class="submitIt" type="button" value="提交报名表">
     </div>
-    <input type="hidden" name="openId" value=<?php echo $openId; ?> >
+    <input type="hidden" name="openId" value="" >
 </form>
 <script>
     first("province", "city", "form1", 0, 0);
 </script>
-<script type="text/javascript" src="./static/js/scripts/index.js"></script>
+<script type="text/javascript" src="http://cyhn.aliapp.com/static/js/scripts/index.js"></script>
 </body>
 
 </html>

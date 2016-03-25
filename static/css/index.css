@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    font-family: SimHei;
+}
+
+#basicInfo {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 15rem;
+}
+
+section {
+    width: 100%;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+}
+
+input {
+    position: relative;
+    width: 9.9rem;
+    height: 1.7rem;
+    border: 0.09rem solid #D3D3D3;
+    border-radius: 0.2rem;
+    font-size: 0.75rem;
+    color: #786e6e;
+    padding-left: 4.5rem;
+    opacity: 0.87;
+    filter: Alpha(opacity=87);
+}
+
+input:focus,
+#proIntro:focus {
+    border-color: #3bac9f;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.6rem;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    font-size: 0.75rem;
+    text-align: right;
+    color: #000000;
+}
+
+#proMon {
+    height: auto;
+}
+
+#proMon label {
+    width: 5.2rem;
+}
+
+#proMon input {
+    padding-left: 5.3rem;
+    width: 9rem;
+}
+
+.title {
+    position: relative;
+    height: 1.2rem;
+    width: auto;
+    margin-top: 0.75rem;
+    margin-left: 0.75rem;
+}
+
+.title p {
+    position: absolute;
+    margin: 0;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.875rem;
+    color: #404040;
+    font-weight: bold;
+}
+
+.item {
+    width: 14.4rem;
+    height: 1.7rem;
+    position: relative;
+    padding: 0 0.8rem;
+    margin-bottom: 0.75rem;
+}
+
+#city,
+#province {
+    width: 4.5rem;
+    height: 1.7rem;
+    border: 0.09rem solid #B8B8B8;
+    border-radius: 0.2rem;
+    font-size: 0.75rem;
+    color: #786e6e;
+    padding-left: 0.5rem;
+}
+
+#province {
+    margin-left: 5rem;
+}
+#city{
+    display: none;
+}
+
+#proDir {
+    float: right;
+    width: 9.5rem;
+    height: 1.7rem;
+    border: 0.09rem solid #B8B8B8;
+    border-radius: 0.2rem;
+    font-size: 0.75rem;
+    color: #786e6e;
+    margin: 0 0 0 0.5rem;
+    padding-left: 0.5rem;
+}
+
+#proIntro {
+    position: relative;
+    margin-left: 0.8rem;
+    margin-top: 0.8rem;
+    width: 12.9rem;
+    height: 3rem;
+    font-size: 0.75rem;
+    border: 0.09rem solid #B8B8B8;
+    border-radius: 0.2rem;
+    padding: 1.5rem 0.7rem 0rem 0.7rem;
+}
+
+#proIntrodution {
+    margin-top: 24.2rem;
+}
+
+p {
+    width: 4.6rem;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    font-size: 0.75rem;
+    text-align: right;
+    color: #000000;
+    margin-left: 0.8rem;
+}
+
+.proDevelop,
+.proDevelop .item {
+    overflow: hidden;
+}
+
+.proDev,.prodev {
+    border: 0.09rem solid #B8B8B8;
+    border-radius: 0.2rem;
+    width: 4.5rem;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    float: left;
+    margin: 0 1.7rem 0.8rem 0.8rem;
+    text-align: center;
+}
+
+.proDev span,.prodev span{
+    /*line-height:*/
+}
+
+.proDev input,.prodev input {
+    display: none;
+}
+
+#much {
+    position: relative;
+}
+
+#much input {
+    float: right;
+    width: 2.6rem;
+    margin: 0 0.8rem 0.8rem 0.8rem;
+}
+
+#much label {
+    margin-left: 7rem;
+}
+
+#proSubmit {
+    width: 14.4rem;
+    margin: 0.96rem auto 1rem auto;
+}
+
+#proSubmit input {
+    margin-left: 0;
+    width: 14.4rem;
+}
+
+.submitIt {
+    background-color: #3bac9f;
+    color: #fcfcfc;
+    width: 13.6rem;
+    height: 1.7rem;
+    padding: 0;
+    margin-left: 1.2rem;
+    border: 0;
+}
+
+input::-webkit-input-placeholder {
+    color: #D0021B;
+}
+#proMon input::-webkit-input-placeholder,#much input::-webkit-input-placeholder {
+    color: #786e6e;
+}
+
+#success {
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.result {
+    position: relative;
+    height: 2.7rem;
+    margin: 7rem auto 2rem auto;
+    text-align: center;
+}
+
+.result p {
+    width: 13.6rem;
+    height: 3.5rem;
+    margin-left: 1.2rem;
+    text-align: left;
+    line-height: 1.2rem;
+    font-size: 0.85rem;
+}
+
+.check {
+    background-color: #3bac9f;
+    border-color: #3bac9f;
+    color: #fcfcfc;
+}

@@ -25,31 +25,40 @@ class Welcome extends CI_Controller {
 
 	public function OAuth()
 	{
-		if (isset($_GET['code'])){
-			$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$_GET['code']."&grant_type=authorization_code";
-
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_HEADER, 0);
-			$output = curl_exec($ch);
-			curl_close($ch);
-			$jsonInfo = json_decode($output, true);
-			$openId =  $jsonInfo["openid"];
-			$this->form($openId);
-		}else{
-			$this->load->view('errors/cli/error_404');
-		}
+		$this->load->view('form');
+//		if (isset($_GET['code'])){
+//			$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$_GET['code']."&grant_type=authorization_code";
+//
+//			$ch = curl_init();
+//			curl_setopt($ch, CURLOPT_URL, $url);
+//			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//			curl_setopt($ch, CURLOPT_HEADER, 0);
+//			//阿里云必须设置以下两条
+//			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 对认证证书来源的检查
+//			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // 从证书中检查SSL加密算法是否存在
+//			$output = curl_exec($ch);
+//			curl_close($ch);
+//			$jsonInfo = json_decode($output, true);
+//			$openId =  $jsonInfo["openid"];
+//			$this->form($openId);
+//		}else{
+//			echo "NO CODE";
+//		}
 	}
 
 	public function form($openId)
 	{
 		if(!isset($openId) || strlen($openId) != 28){
-			$this->load->view('errors/cli/error_404');
+			echo "NO OPENID";
 		}else{
 			$data['openId'] = $openId;
 			$this->load->view('form', $data);
 		}
+	}
+
+	public function success()
+	{
+		$this->load->view('success');
 	}
 
 	public function formHelper()
