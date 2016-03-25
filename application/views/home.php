@@ -120,6 +120,7 @@
         <div id="proSubmit">
             <input class="submitIt" type="button" value="提交报名表">
         </div>
+        <input type="hidden" name="openId" value=<?php echo $openId; ?> >
     </form>
     <script>
     first("province", "city", "form1", 0, 0);
