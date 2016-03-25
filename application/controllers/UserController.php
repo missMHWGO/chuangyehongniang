@@ -46,7 +46,8 @@ class UserController extends CI_Controller
         if($this->db->trans_status() === false){
             echo toJsonFail(FAIL_TO_INSERT);
         }else{
-            echo toJsonSuccess($personId);
+            //echo toJsonSuccess($personId);
+            $this->load->view('success');
         }
     }
 
