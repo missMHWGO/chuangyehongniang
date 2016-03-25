@@ -1,24 +1,23 @@
 var pageNumber;
 var peopleList;
-var obj1;
-var obj2;
+var obj3;
 var text;
+var emailId;
+var detailId;
 
 $(document).ready(function () {
     personGet();
+    $('.informationGroup').hide();
+
 });
 function personGet() {
     $.get("http://localhost/cyhn2/users", {
         page: 0
     }, function (result) {
-         obj1 = JSON.parse(result);
-        obj2=obj1.data;
-        var obj3=obj2.count;
-        for( var i=0;i<2;i++){
-            text=obj2+"."+i;
-            alert(text);
-        }
-    var t = "";
+        var obj1 = JSON.parse(result);
+        var obj2 = obj1.data;
+        peopleList = obj2.users;
+        var t = "";
         t += '<table data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
         t += " <tr>" +
             "<td >姓名</td>" +
@@ -60,11 +59,36 @@ function personGet() {
             var button = document.createElement("button");
             button.id = peopleList[k].Id;
             button.innerHTML = '发送报名表';
+            (function (k) {
+                button.addEventListener("click", function (f) {
+                    emailId = peopleList[k].Id;
+                    emailGive();
+                }, false);
+            })(k);
             $('#sendEmail' + k).append(button);
             var aDetail = document.createElement("a");
             aDetail.id = peopleList[k].Id;
             aDetail.innerHTML = '详情';
+            (function (k) {
+                aDetail.addEventListener("click", function (g) {
+                    detailId = peopleList[k].Id;
+                    detailShow();
+                }, false);
+            })(k);
             $('#detail' + k).append(aDetail);
         }
     });
+}
+function emailGive() {
+    $.post("http://localhost/cyhn2/users/" + emailId + "/email", function () {
+        alert("邮件已经发送成功！")
+    });
+}
+function detailShow() {
+    $.get("http://localhost/cyhn2/users/1", function (res) {
+        $('.informationGroup').show();
+        $('#tableList').hide();
+
+    });
+
 }
