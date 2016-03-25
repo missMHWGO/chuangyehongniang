@@ -9,7 +9,7 @@ body {
 nav {
     position: fixed;
     width: 1440px;
-    height: 64px;
+    height: 68px;
     margin: 0;
     background-color: rgba(38, 47, 58, 0.97);
     top: 0;
@@ -29,3 +29,89 @@ transform: translate(-50%);
     text-align: center;
     vertical-align: middle;
 }
+.informationGroup {
+    font-size: 12px;
+    position: fixed;
+    top: 88px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #efefef;
+    height: 600px;
+    width: 800px;
+
+}
+
+label {
+    color: #707070;
+}
+
+.firstLine {
+    margin-right: 48px;
+    padding: 0;
+}
+
+.specialLine1 {
+    margin-right: 24px;
+}
+
+.specialLine2 {
+    padding: 0;
+    margin-right: 12px;
+}
+
+.first1 {
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+hr {
+    background-color: #dddddd;
+    height: 2px;
+    border: 2px;
+
+}
+
+.title {
+    padding-left: 20px;
+    height: 40px;
+    background-color: #dddddd;
+}
+
+.informationCon {
+    padding-left: 20px;
+
+
+}
+
+.itemCon {
+    position: fixed;
+    top: 338px;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    height: 25px;
+    width: 165px;
+    border: 1px;
+    border-color: #cecece;
+    border-radius: 3px;
+    background-color: #fcfcfc;
+
+}
+
+h3 {
+    margin: 0;
+    padding-top: 15px;
+}
+#returnToM{
+    position: fixed;
+    bottom: 0;
+    background-color: #00CC00;
+    color: #0000FF;
+}
+
+
+
