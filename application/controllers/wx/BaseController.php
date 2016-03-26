@@ -95,6 +95,36 @@ class BaseController extends CI_Controller
                 break;
             case "CLICK":  //一定要是大写！！！
                 switch ($object->EventKey) {
+                    case "BMXZ":
+                        $contentStr = array(
+                            "Title"=> "",
+                            "Description"=>"",
+                            "PicUrl"=>"",
+                            "Url" =>""
+                        );
+                        break;
+                    case "CYHN":
+                        $contentStr = array(
+                            "Title"=> "刘玉：从Dian团队创始人到“创业红娘”的华丽转型",
+                            "Description"=>"刘玉教授，华中科技大学启明学院副院长，Dian团队创始人，“创业红娘”公益服务中心创始人",
+                            "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaKHTCqRTJxODhyOhlQ8qCMibcdq0ftc1U4iccLhxQM2Sibg74jHzFpOFAxmxoz5zYTGj1mtUuQpRqhbA/0?wx_fmt=jpeg",
+                            "Url" =>"http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402479086&idx=1&sn=1f297b387c2be6475816921c7d2c7764#rd");
+                        break;
+                    case "PTJJ":
+                        $contentStr = array(
+                            "Title"=> "",
+                            "Description"=>"",
+                            "PicUrl"=>"",
+                            "Url" =>""
+                        );
+                        break;
+                    case "TZZR":
+                        $contentStr = array(
+                            "Title"=> "“创业红娘”平台投资阵容",
+                            "Description"=>"2015年，多位中国顶级的VC前来武汉参加“创业相亲会”，对武汉的创投生态改善起到了极大的推动作用！",
+                            "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaKHTCqRTJxODhyOhlQ8qCMibJVEia19ibXsk1LENjwvBgjBib4N54rcK6XIIXwibkCqEZYESN86Ol0M4xw/0",
+                            "Url" =>"http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402472218&idx=1&sn=a8b65de2a5ef658ed00f4d5c8ca93333#rd");
+                        break;
                     case "CGAL":
                         $accessToken = $this->getAccessToken();
                         $newsList = $this->getNewsList($accessToken);
