@@ -45,7 +45,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-	public function form($openId)
+	private function form($openId)
 	{
 		if(!isset($openId) || strlen($openId) != 28){
 			echo "NO OPENID";
