@@ -22,7 +22,7 @@ h1 {
 
 #tableList {
     font-size: 20px;
-    width: 960px;
+    width: 1312px;
     position: fixed;
     top: 94px;
     left: 50%;
@@ -32,7 +32,6 @@ h1 {
 }
 
 table{
-
     border-collapse: collapse;
     border: none;
 }
@@ -123,6 +122,47 @@ h3 {
     bottom: 0;
     background-color: #000000;
     color: #c8e3d7;
+}
+.nameTh{
+    padding-left: 48px;
+    padding-right: 20px;
+}
+.phoneTh{
+    padding-left: 48px;
+    padding-right:48px;
+}
+.emailTh{
+    padding-left: 107px;
+    padding-right: 107px;
+}
+.schoolTh{
+    padding-left: 47px;
+    padding-right: 47px;
+}
+.cityTh{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.itemNameTh{
+    padding-left: 38px;
+    padding-right: 38px;
+}
+.directionTh{
+
+    padding-right: 18px;
+    padding-left: 18px;
+}
+.detailTh{
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.actionTh{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.deleteTh{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 

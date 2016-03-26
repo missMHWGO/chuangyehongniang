@@ -22,20 +22,19 @@ function personGet() {
         var t = "";
         t += '<table id="personTable" data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
         t += " <tr>" +
-            "<td class='name' >姓名</td>" +
-            "<td  class='phone'>电话</td>" +
-            "<td>邮箱</td>" +
-            "<td>学校</td>" +
-            "<td>城市</td>" +
-            "<td>项目名称</td>" +
-            "<td>项目方向</td>" +
-            "<td>详情</td>" +
-            "<td>操作</td>" +
-            "<td>删除</td>" +
+            "<th class='nameTh' >姓名</th>" +
+            "<th class='phoneTh'>电话</th>" +
+            "<th class='emailTh'>邮箱</th>" +
+            "<th class='schoolTh'>学校</th>" +
+            "<th class='cityTh'>城市</th>" +
+            "<th class='itemNameTh'>项目名称</th>" +
+            "<th class='directionTh'>项目方向</th>" +
+            "<th class='detailTh'>详情</th>" +
+            "<th class='actionTh'>操作</th>" +
+            "<th class='deleteTh'>删除</th>" +
             "</tr>";
         for (var i = 0; i < peopleList.length; i++) {
             t += "<tr >";
-            t += "<div>";
             t += "<td>" + peopleList[i].name + "</td>";
             t += "<td>" + peopleList[i].phone + "</td>";
             t += "<td>" + peopleList[i].email + "</td>";
@@ -46,7 +45,6 @@ function personGet() {
             t += "<td>" + "<div class='detail'></div>" + "</td>";
             t += "<td>" + "<div class='sendEmail'></div>" + "</td>";
             t += "<td>" + "<div class='delete'></div>" + "</td>";
-            t += "</div>";
             t += "</tr>";
         }
         t += "</table>";
@@ -143,6 +141,6 @@ function tableDelete() {
     });
 }
 function tableColor(){
-    $('tr').css("background-color", "#333333");
+    $('tr').css("background-color", "#f7f7f7");
     $('tr:odd' ).css("background-color", "#000000");
 }
