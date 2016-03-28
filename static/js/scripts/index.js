@@ -222,9 +222,9 @@
                  checkProdev = check_prodev();
 
                  if (isBlank == false && checkProDev == true && checkProdev == true) {
-                     if ($('#money').val() == "") {
-                         $('#money').val("0");
-                     }
+                     if (form.projectIfCost.value=='1') {
+                        $('#money').val(0);
+                    }
                      form.submit();
                      window.location.href = "http://cyhn.aliapp.com/application/views/success.php";
                  } else {
