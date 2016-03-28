@@ -23,7 +23,7 @@ section {
 
 input {
     position: relative;
-    width: 9.5rem;
+    width: 9.1rem;
     height: 1.96rem;
     line-height: 1.96rem;
     border: 0.05rem solid #D3D3D3;
@@ -42,9 +42,10 @@ input:focus,
 
 label {
     position: absolute;
-    top: 0;
+    top: 0.13rem;
     left: 0;
     line-height: 2.06rem;
+    height: 2.06rem;
     font-size: 0.60rem;
     text-align: right;
     color: #000000;
@@ -57,7 +58,16 @@ label {
 
 #proMon input {
     padding-left: 4.3rem;
-    width: 8.8rem;
+    width: 6.7rem;
+}
+#proMon p{
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.75rem;
+    margin: 0;
 }
 
 .title {
@@ -81,6 +91,7 @@ label {
     position: relative;
     padding: 0 0.81rem 0 0.71rem;
     margin-bottom: 1rem;
+    overflow: hidden;
 }
 
 #city,
@@ -95,7 +106,7 @@ label {
 }
 
 #proProfile .title p {
-    margin-top: 2.3rem;
+    margin-top: 3.5rem;
 }
 
 #province {
@@ -117,6 +128,10 @@ label {
     padding-left: 0.5rem;
 }
 
+#projectIntro {
+    position: relative;
+}
+
 #proIntro {
     position: relative;
     margin-left: 0.8rem;
@@ -127,11 +142,12 @@ label {
     border-radius: 0.2rem;
     padding: 1.5rem 0.53rem 0rem 0.53rem;
     margin-bottom: 0.71rem;
+    opacity: 0.87;
+    filter: Alpha(opacity=87);
+    color: #786e6e;
 }
 
 #proIntrodution {
-    margin-top: 26.8rem;
-    margin-left: 2.13rem;
 }
 
 p {
@@ -189,18 +205,18 @@ span {
 }
 
 #proSubmit input {
-    margin-left: 0.71rem;
     width: 13.1rem;
 }
 
 .submitIt {
-    background-color: #3bac9f;
     color: #fcfcfc;
+    background-image: url(../img/submit.png);
     width: 13.6rem;
     height: 1.96rem;
     padding: 0;
-    margin-left: 1.2rem;
+    margin-left: 0.71rem;
     border: 0;
+    border-radius: 0.3rem;
 }
 
 input::-webkit-input-placeholder {
@@ -218,15 +234,14 @@ input::-webkit-input-placeholder {
     height: 2.7rem;
     margin: 7rem auto 2rem auto;
     text-align: center;
+    width: 14rem;
 }
 
 .result p {
-    width: 13.6rem;
     height: 3.5rem;
-    margin-left: 1.2rem;
-    text-align: left;
     line-height: 1.2rem;
     font-size: 0.85rem;
+    margin-left: 0;
 }
 
 .check {
