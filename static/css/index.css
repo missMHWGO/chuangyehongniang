@@ -211,6 +211,8 @@ span {
 .submitIt {
     color: #fcfcfc;
     background-image: url(../img/submit.png);
+    background-repeat: no-repeat;
+    background-size:100%;
     width: 13.6rem;
     height: 1.96rem;
     padding: 0;
