@@ -33,11 +33,6 @@ class FormPersonModel extends CI_Model
         return $query->result_array();
     }
 
-    public function getCount()
-    {
-        return $this->db->count_all(FPETABLE);
-    }
-
     public function delete($id)
     {
         $this->db->delete(FPETABLE, array('Id' => $id));

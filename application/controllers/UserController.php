@@ -46,7 +46,8 @@ class UserController extends CI_Controller
         if($this->db->trans_status() === false){
             echo toJsonFail(FAIL_TO_INSERT);
         }else{
-            echo toJsonSuccess($personId);
+//            echo toJsonSuccess($personId);
+            $this->load->view('success');
         }
     }
 
@@ -60,11 +61,7 @@ class UserController extends CI_Controller
             $project = $this->FormProjectModel->searchLittle($projectId);
             array_push($data, array_merge($key, $project));
         }
-        $count = $this->FormPersonModel->getCount();
-        $array = array();
-        $array['users'] = $data;
-        $array['count'] = $count;
-        echo toJsonSuccess($array);
+        echo toJsonSuccess($data);
     }
 
     public function getDetailInfo($id)

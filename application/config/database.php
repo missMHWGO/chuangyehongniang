@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;port=3306;dbname=cyhn',
-	'hostname' => 'localhost',
-	'username' => 'root',
+	'dsn'	=> '',
+	'hostname' => 'rds9172frs7w072jcog4.mysql.rds.aliyuncs.com:3306',
+	'username' => 'r940e1p6uszlbpiy',
 	'password' => '123456',
-	'database' => 'cyhn',
-	'dbdriver' => 'pdo',
+	'database' => 'r940e1p6uszlbpiy',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => FALSE,

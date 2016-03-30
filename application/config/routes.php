@@ -59,12 +59,10 @@ $route['about/cyhn']['GET'] = 'Welcome/cyhn';
 $route['about/ptjj']['GET'] = 'Welcome/ptjj';
 $route['about/tzzr']['GET'] = 'Welcome/tzzr';
 $route['form']['GET'] = 'Welcome/OAuth';
-$route['form/success']['GET'] = 'Welcome/success';
+$route['users/manage']['GET'] = 'Welcome/manage';
 
 $route['users']['GET'] = 'UserController/getSimpleList';
 $route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';
+$route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';
 $route['users']['POST'] = 'UserController/addUser';
 $route['users/(:num)/email']['POST'] = 'UserController/sendEmail/$1';
-$route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';
-
-$route['users/manage']['GET'] = 'Welcome/manage';

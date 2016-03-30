@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
     <div class="container">
-        <form method="post" action=" http://cyhn.aliapp.com/users" name="form1">
+        <form method="post" action="http://cyhn.aliapp.com/users" name="form1">
     <div id="basicInfo">
         <div class="title">
             <p>一、个人信息</p>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label for="name">您的姓名</label>
             </div>
             <div class="item">
-                <input type="text" name="phone" id="phone">
+                <input type="number" name="phone" id="phone">
                 <label for="phone">您的电话</label>
             </div>
             <div class="item">
@@ -97,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </select>
                 <label for="projectArea">项目方向</label>
             </div>
-            <div>
+            <div id="projectIntro">
                 <textarea id="proIntro" name="projectInfo" placeholder="50字以内" maxlength="50"></textarea>
                 <label for="projectInfo" id="proIntrodution">项目简介</label>
             </div>
@@ -115,14 +115,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="proDevelop">
                 <p>之前是否融资</p>
                 <div id="much">
-                    <input type="text" name="projectCosted" id="money">
+                    <input type="number" name="projectCosted" id="money">
                     <label for="money">融资数额</label>
                 </div>
                 <div class="prodev"><input type="radio" value="0" name="projectIfCost"><span>是</span></div>
                 <div class="prodev"><input type="radio" value="1" name="projectIfCost"><span>否</span></div>
                 <div class="item" id="proMon">
-                    <input type="text" name="projectCost" id="preMoney">
+                    <input type="number" name="projectCost" id="preMoney">
                     <label for="preMoney">拟融资数额</label>
+                    <p>万</p>
                 </div>
             </div>
         </section>

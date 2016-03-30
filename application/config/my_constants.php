@@ -22,7 +22,7 @@ define('FPETABLE', 'form_person');
 define('FPRTABLE', 'form_project');
 define('PPTABLE', 'person_project');
 
-define('FORM_LIMIT', 2);
+define('FORM_LIMIT', 10);
 
 define('TOKEN', '6bfcfbd320097d65d72d71e7854b0a23');
 define('APPKEY', 'wx809c63746bcf1d76');
@@ -65,8 +65,8 @@ define('menu', '{
             "sub_button": [
                 {
                     "name": "报名须知",
-                    "type": "view",
-                    "url": "http://cyhn.aliapp.com/form/helper"
+                    "type": "click",
+                    "key": "BMXZ"
                 },
                 {
                     "name": "立即报名",
@@ -80,18 +80,18 @@ define('menu', '{
             "sub_button": [
                 {
                     "name": "创业红娘",
-                    "type": "view",
-                    "url": "http://cyhn.aliapp.com/about/cyhn"
+                    "type": "click",
+                    "key": "CYHN"
                 },
                 {
                     "name": "平台简介",
-                    "type": "view",
-                    "url": "http://cyhn.aliapp.com/about/ptjj"
+                    "type": "click",
+                    "key": "PTJJ"
                 },
                 {
                     "name": "投资阵容",
-                    "type": "view",
-                    "url": "http://cyhn.aliapp.com/about/tzzr"
+                    "type": "click",
+                    "key": "TZZR"
                 }
             ]
         }

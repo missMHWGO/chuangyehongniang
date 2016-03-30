@@ -136,7 +136,11 @@
 
 
              $(document).on('change', '#province', function() {
-                 $("#city")[0].style.display = 'inline';
+                if (this.value != "香港" && this.value != "澳门" && this.value != "台湾") {
+                    $("#city")[0].style.display = 'inline';
+                }else{
+                    $("#city")[0].style.display = 'none';
+                }                
              })
 
              $(document).on('touchend', '.proDev', function() {
@@ -173,7 +177,7 @@
 
                  for (i = 0; i < basicFormLength; i++) {
                      basicInput.push(form.elements[i].value);
-                     if (basicInput[i] === "") {
+                     if ((basicInput[i] === "" && i != 13 && i != 5) || (basicInput[13] === "" && form.projectIfCost.value=='0') || (basicInput[5] === "" && basicInput[4] != "香港" && basicInput[4] != "澳门" && basicInput[4] != "台湾")){
                          isBlank = true;
                          $input = form.elements[i].id;
                          $('body').scrollTop(0);
@@ -222,11 +226,11 @@
                  checkProdev = check_prodev();
 
                  if (isBlank == false && checkProDev == true && checkProdev == true) {
-                     if (form.projectIfCost.value=='1') {
+                    if (form.projectIfCost.value=='1') {
                         $('#money').val(0);
                     }
                      form.submit();
-                     window.location.href = "http://cyhn.aliapp.com/application/views/success.php";
+                     // setTimeout(function(){window.location.href = "application/views/success.html";},500);
                  } else {
                      alert("请完成您的信息填写！");
                  }
