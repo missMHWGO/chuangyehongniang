@@ -25,6 +25,6 @@
         <div class="result">
             <p>您已成功提交项目信息！我们会尽快联系您，和您确定项目约谈的时间！</p>
         </div>
-            <input class="submitIt" type="button" value="返回首页"  onclick="WeixinJSBridge.call('closeWindow');>
+            <input class="submitIt" type="button" value="返回首页" onclick="WeixinJSBridge.call('closeWindow');">
     </div>
 </body>

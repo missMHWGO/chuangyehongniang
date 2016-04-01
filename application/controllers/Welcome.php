@@ -40,9 +40,11 @@ class Welcome extends CI_Controller {
 				curl_close($ch);
 				$jsonInfo = json_decode($output, true);
 				$openId = $jsonInfo["openid"];
-				$this->input->set_cookie('openId', $openId, time() + 3600);
+				$this->input->set_cookie('openId', $openId, 3600);
+			}else{
+				$openId = $this->input->cookie('openId');
 			}
-			$this->form($this->input->cookie('openId'));
+			$this->form($openId);
 		}else{
 			echo "NO CODE";
 		}
@@ -86,6 +88,12 @@ class Welcome extends CI_Controller {
 	public function manage()
 	{
 		$this->load->view('manager/manage');
+	}
+
+        public function detail($id)
+        {
+		$data['id'] = $id;
+                $this->load->view('manager/detail', $data);
 	}
 
 }

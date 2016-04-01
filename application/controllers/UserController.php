@@ -29,11 +29,11 @@ class UserController extends CI_Controller
         $projectInfo = $this->input->post('projectInfo');
         $projectStatus = $this->input->post('projectStatus');
         $projectIfCost = $this->input->post('projectIfCost');
-        $projectCosted = $this->input->post('projectCosted');
-        $projectCost = $this->input->post('projectCost');
+        $projectCosted = $this->input->post('projectCosted') * 10000;
+        $projectCost = $this->input->post('projectCost') * 10000;
 
-        if($openId == null || $name == null || $phone == null || $email == null || $school == null || $city == null || $projectName == null || $projectArea == null || $projectInfo == null ||
-        $projectStatus == null || $projectIfCost == null || $projectCosted == null || $projectCost == null)
+        if($openId === null || $name === null || $phone === null || $email === null || $school === null || $city === null || $projectName === null || $projectArea === null || $projectInfo === null ||
+        $projectStatus === null || $projectIfCost === null || $projectCosted === null || $projectCost === null)
         {
             echo toJsonFail(NO_INPUT);
             return;
@@ -61,7 +61,11 @@ class UserController extends CI_Controller
             $project = $this->FormProjectModel->searchLittle($projectId);
             array_push($data, array_merge($key, $project));
         }
-        echo toJsonSuccess($data);
+        $count = $this->FormPersonModel->getCount();
+        $array = array();
+        $array['users'] = $data;
+        $array['count'] = $count;
+        echo toJsonSuccess($array);
     }
 
     public function getDetailInfo($id)

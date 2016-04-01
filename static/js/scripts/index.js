@@ -1,3 +1,4 @@
+
  ;
  (function(win) {
      var lib = win.lib,
@@ -120,7 +121,7 @@
                          'border-color': '#D0021B',
                          'font-size': '0.5rem'
                      });
-                     $('#' + id).attr('placeholder', '此处不能为空');
+                     $('#' + id).attr('placeholder', '不为空');
                      $('#' + id).click(function() {
                          isBlank = false;
                          $('#' + id).css({
@@ -153,7 +154,7 @@
                  $(this).addClass("check");
              })
 
-             $("#much")[0].style.display = 'none';
+             $("#much")[0].style.visibility = 'hidden';
              $(document).on('touchend', '.prodev', function() {
                  var self = this,
                      num = $(this).index() - 2,
@@ -163,9 +164,9 @@
                  $('.prodev').removeClass("check");
                  $(this).addClass("check");
                  if (num === 0) {
-                     $("#much")[0].style.display = 'block';
+                     $("#much")[0].style.visibility = 'visible';
                  } else if (num === 1) {
-                     $("#much")[0].style.display = 'none';
+                     $("#much")[0].style.visibility = 'hidden';
                  }
              })
 
@@ -226,7 +227,7 @@
                  checkProdev = check_prodev();
 
                  if (isBlank == false && checkProDev == true && checkProdev == true) {
-                    if (form.projectIfCost.value=='1') {
+                    if (form.projectIfCost.value=='0') {
                         $('#money').val(0);
                     }
                      form.submit();

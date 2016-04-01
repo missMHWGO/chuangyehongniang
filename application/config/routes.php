@@ -63,6 +63,6 @@ $route['users/manage']['GET'] = 'Welcome/manage';
 
 $route['users']['GET'] = 'UserController/getSimpleList';
 $route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';
-$route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';
 $route['users']['POST'] = 'UserController/addUser';
 $route['users/(:num)/email']['POST'] = 'UserController/sendEmail/$1';
+$route['users/(:num)/delete']['POST'] = 'UserController/deleteUser/$1';    //换了ECS一定要记得把这个改成DELETE
