@@ -21,10 +21,10 @@
 </head>
 
 <body>
-    <div id="success">
-        <div class="result">
-            <p>您已成功提交项目信息！我们会尽快联系您，和您确定项目约谈的时间！</p>
+    <div id="fail">
+        <div class="failResult">
+            <p>提交失败，请再次返回报名表提交！</p>
         </div>
-            <input class="submitIt" type="button" value="返回首页" onclick="WeixinJSBridge.call('closeWindow');">
+            <input class="submitIt" type="button" value="返回报名表" onclick="history.go(-1);">
     </div>
 </body>

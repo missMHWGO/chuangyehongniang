@@ -97,10 +97,10 @@ class BaseController extends CI_Controller
                 switch ($object->EventKey) {
                     case "BMXZ":
                         $contentStr[] = array(
-                            "Title"=> "报名须知",
-                            "Description"=>"",
-                            "PicUrl"=>"",
-                            "Url" =>""
+                            "Title"=> "“创业红娘 ”创业者须知及注意事项",
+                            "Description"=>"以下为想参加“创业相亲会”获得融资的创业者须知事项，请创业者认真阅读。",
+                            "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaKOlGmfZIBMK9M1zYIbWiazS0D6nMPnicVibL8UunMKZmDuNn369L02FNu7iaZ4xAsvV8ibIgUBossMkzA/0?wx_fmt=jpeg",
+                            "Url" =>"http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402552567&idx=1&sn=e3a8255688d1bf99d76d590d8662772f#rd"
                         );
                         break;
                     case "CYHN":
@@ -110,12 +110,12 @@ class BaseController extends CI_Controller
                             "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaKHTCqRTJxODhyOhlQ8qCMibcdq0ftc1U4iccLhxQM2Sibg74jHzFpOFAxmxoz5zYTGj1mtUuQpRqhbA/0?wx_fmt=jpeg",
                             "Url" =>"http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402479086&idx=1&sn=1f297b387c2be6475816921c7d2c7764#rd");
                         break;
-                    case "PTJJ":
+                    case "TSHD":
                         $contentStr[] = array(
-                            "Title"=> "",
-                            "Description"=>"",
-                            "PicUrl"=>"",
-                            "Url" =>""
+                            "Title"=> "“创业红娘公益服务中心”每月特色活动\"",
+                            "Description"=>"武汉市洪山区创业红娘公益服务中心是一个为创业者和投资人牵线搭桥，帮助创业项目融资、帮扶团队成长的公益性组织。",
+                            "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz/OIzxibr3LSaKOlGmfZIBMK9M1zYIbWiazSqsJqCyTQKHfC3SU1LzVpdElTvSDeDZQ6rME9Iic5lZicf2oxqibhZVeCA/0?wx_fmt=jpeg",
+                            "Url" =>"http://mp.weixin.qq.com/s?__biz=MzAxNjgzNjE0NQ==&mid=402553119&idx=1&sn=ffe890b52b4ab672c99c45a7f0ddefc4#rd"
                         );
                         break;
                     case "TZZR":

@@ -4,10 +4,12 @@ body {
     padding: 0.71rem;
     background-color: #f2f2f2;
 }
-.container{
+
+.container {
     background-color: #fcfcfc;
     border-radius: 0.36rem;
 }
+
 #basicInfo {
     position: relative;
     margin: 0;
@@ -53,7 +55,7 @@ label {
 }
 
 #proMon {
-    margin:1.5rem 0 1.5rem 0;
+    margin: 1.5rem 0 1.5rem 0;
     height: auto;
 }
 
@@ -61,7 +63,9 @@ label {
     padding-left: 4.6rem;
     width: 8.1rem;
 }
-#proMon p, #much p {
+
+#proMon p,
+#much p {
     position: absolute;
     top: 0.1rem;
     right: 1.2rem;
@@ -72,9 +76,10 @@ label {
     color: #786e6e;
 }
 
-select{
+select {
     background: #f4f4f4;
 }
+
 .title {
     position: relative;
     height: 1.2rem;
@@ -109,6 +114,8 @@ select{
     color: #786e6e;
     padding-left: 0.5rem;
 }
+
+
 /*#province{
     margin-right: 0.1rem;
 }*/
@@ -120,7 +127,8 @@ select{
 #province {
     margin-left: 5rem;
 }
-#city{
+
+#city {
     display: none;
 }
 
@@ -155,8 +163,7 @@ select{
     color: #786e6e;
 }
 
-#proIntrodution {
-}
+#proIntrodution {}
 
 p {
     font-size: 0.6rem;
@@ -168,10 +175,13 @@ p {
 .proDevelop .item {
     overflow: hidden;
 }
-.proDevelop p{
+
+.proDevelop p {
     margin-top: 0.59rem;
 }
-.proDev,.prodev {
+
+.proDev,
+.prodev {
     border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
     width: 4.36rem;
@@ -187,9 +197,11 @@ p {
     margin-right: 1rem;
 }
 
-.proDev input,.prodev input {
+.proDev input,
+.prodev input {
     display: none;
 }
+
 span {
     font-size: 0.6rem;
 }
@@ -224,7 +236,7 @@ span {
     color: #fcfcfc;
     background-image: url(../img/submit.png);
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
     width: 13.4rem;
     height: 1.96rem;
     padding: 0;
@@ -258,12 +270,16 @@ input::-webkit-input-placeholder {
     margin-left: 0;
 }
 
+#fail p {
+    margin-left: 0.4rem;
+}
+
 .check {
     background-color: #3bac9f;
     border-color: #3bac9f;
     color: #fcfcfc;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
