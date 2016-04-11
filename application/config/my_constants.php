@@ -15,6 +15,7 @@ define('FAIL_TO_DELETE', 4);
 define('FAIL_TO_UPDATE', 5);
 define('INVALID_INPUT', 6);
 define('FAIL_TO_SEND_MAIL', 7);
+define('ALREADY_SEND_EMAIL', 8);
 
 define('BASE_PATH', 'http://121.42.165.222');
 
@@ -30,6 +31,15 @@ define('APPID', 'wx809c63746bcf1d76');
 define('APPSECRET', '6b43fca63feac04649542fae733782de');
 define('EMAIL_ACCOUNT', 'chuangyehongniang@163.com');
 define('EMAIL_PASSWORD', 'cyhn2016');
+define('MAIL_ACCOUNT', '创业红娘公益服务中心');
+define('MAIL_SUBJECT', '［创业红娘］您的项目通过初步筛选，请于本月10号前提交“项目信息登记表”');
+define('MAIL_MESSAGE','尊敬的创业者：'.
+    '<br>'.
+    '&nbsp&nbsp您好！您的项目已通过“创业红娘”的初步筛选，可以参加本月的“创业相亲会”。请您下载附件，填写好”创业红娘项目信息登记表”，并以项目名字命名，在10号前将报名表寄到刘玉老师的邮箱：liuyu@hust.edu.cn ！ （注意：我们将在15号统一将所有项目寄送投资人，如果您未能及时交表，视为自动放弃参会资格）'.
+    '<br>'.
+   '&nbsp&nbsp附件2为“创业者参会指南”，请您下载后仔细阅读。'.
+    '<br>'.
+    '［请勿回复本邮件］');
 
 
 //define('TEXT_XML', "<xml>".

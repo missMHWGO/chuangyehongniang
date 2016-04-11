@@ -40,18 +40,22 @@ class Welcome extends CI_Controller {
 				curl_close($ch);
 				$jsonInfo = json_decode($output, true);
 				$openId = $jsonInfo["openid"];
-				$this->input->set_cookie('openId', $openId, time() + 3600);
+				$this->input->set_cookie('openId', $openId, 3600);
+			}else{
+				$openId = $this->input->cookie('openId');
 			}
-			$this->form($this->input->cookie('openId'));
+			$this->form($openId);
 		}else{
-			echo "NO CODE";
+//			echo "NO CODE";
+			$this->load->view('fail');
 		}
 	}
 
 	private function form($openId)
 	{
 		if(!isset($openId) || strlen($openId) != 28){
-			echo "NO OPENID";
+//			echo "NO OPENID";
+			$this->load->view('fail');
 		}else{
 			$data['openId'] = $openId;
 			$this->load->view('form', $data);
@@ -86,6 +90,12 @@ class Welcome extends CI_Controller {
 	public function manage()
 	{
 		$this->load->view('manager/manage');
+	}
+
+	public function detail($id)
+	{
+		$data['id'] = $id;
+		$this->load->view('manager/detail', $data);
 	}
 
 }

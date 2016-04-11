@@ -4,10 +4,12 @@ body {
     padding: 0.71rem;
     background-color: #f2f2f2;
 }
-.container{
+
+.container {
     background-color: #fcfcfc;
     border-radius: 0.36rem;
 }
+
 #basicInfo {
     position: relative;
     margin: 0;
@@ -30,7 +32,7 @@ input {
     border-radius: 0.2rem;
     font-size: 0.6rem;
     color: #786e6e;
-    padding-left: 3.64rem;
+    padding-left: 3.65rem;
     opacity: 0.87;
     filter: Alpha(opacity=87);
 }
@@ -45,7 +47,7 @@ label {
     top: 0.11rem;
     left: 0;
     line-height: 2.06rem;
-    height: 2.06rem;
+    /*height: 2.06rem;*/
     font-size: 0.60rem;
     text-align: right;
     color: #000000;
@@ -53,21 +55,29 @@ label {
 }
 
 #proMon {
+    margin: 1.5rem 0 1.5rem 0;
     height: auto;
 }
 
 #proMon input {
-    padding-left: 4.3rem;
-    width: 6.7rem;
+    padding-left: 4.6rem;
+    width: 8.1rem;
 }
-#proMon p{
+
+#proMon p,
+#much p {
     position: absolute;
-    top: 0;
-    right: 1rem;
-    height: 2rem;
+    top: 0.1rem;
+    right: 1.2rem;
+    height: 1.96rem;
     line-height: 2rem;
-    font-size: 0.75rem;
     margin: 0;
+    font-size: 0.6rem;
+    color: #786e6e;
+}
+
+select {
+    background: #f4f4f4;
 }
 
 .title {
@@ -89,7 +99,7 @@ label {
 
 .item {
     position: relative;
-    padding: 0 0.81rem 0 0.71rem;
+    padding: 0 0.78rem 0 0.71rem;
     margin-bottom: 1rem;
     overflow: hidden;
 }
@@ -105,6 +115,11 @@ label {
     padding-left: 0.5rem;
 }
 
+
+/*#province{
+    margin-right: 0.1rem;
+}*/
+
 #proProfile .title p {
     margin-top: 3.5rem;
 }
@@ -112,7 +127,8 @@ label {
 #province {
     margin-left: 5rem;
 }
-#city{
+
+#city {
     display: none;
 }
 
@@ -147,8 +163,7 @@ label {
     color: #786e6e;
 }
 
-#proIntrodution {
-}
+#proIntrodution {}
 
 p {
     font-size: 0.6rem;
@@ -160,10 +175,13 @@ p {
 .proDevelop .item {
     overflow: hidden;
 }
-.proDevelop p{
-    margin-top: 0.62rem;
+
+.proDevelop p {
+    margin-top: 0.59rem;
 }
-.proDev,.prodev {
+
+.proDev,
+.prodev {
     border: 0.05rem solid #B8B8B8;
     border-radius: 0.2rem;
     width: 4.36rem;
@@ -171,15 +189,19 @@ p {
     line-height: 1.96rem;
     margin: 0 1.5rem 0.71rem 0.8rem;
     text-align: center;
+    background: #f4f4f4;
 }
 
 .proDev {
     float: left;
+    margin-right: 1rem;
 }
 
-.proDev input,.prodev input {
+.proDev input,
+.prodev input {
     display: none;
 }
+
 span {
     font-size: 0.6rem;
 }
@@ -191,32 +213,34 @@ span {
 #much input {
     float: right;
     width: 2.8rem;
+    height: 1.67rem;
     margin: 0 0.71rem 0.8rem 0.8rem;
     padding-left: 3.5rem;
 }
 
 #much label {
+    top: 0;
     margin-left: 8rem;
 }
 
 #proSubmit {
     width: 14.4rem;
-    margin: 0.7rem auto 1rem auto;
+    margin: 0 auto 1rem auto;
 }
 
 #proSubmit input {
-    width: 13.1rem;
+    width: 13rem;
 }
 
 .submitIt {
     color: #fcfcfc;
     background-image: url(../img/submit.png);
     background-repeat: no-repeat;
-    background-size:100%;
-    width: 13.6rem;
+    background-size: 100%;
+    width: 13.4rem;
     height: 1.96rem;
     padding: 0;
-    margin-left: 0.71rem;
+    margin-left: 0.69rem;
     border: 0;
     border-radius: 0.3rem;
 }
@@ -246,12 +270,16 @@ input::-webkit-input-placeholder {
     margin-left: 0;
 }
 
+#fail p {
+    margin-left: 0.4rem;
+}
+
 .check {
     background-color: #3bac9f;
     border-color: #3bac9f;
     color: #fcfcfc;
 }
 
-.hidden{
+.hidden {
     display: none;
 }

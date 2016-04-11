@@ -4,8 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="http://cyhn.aliapp.com/res/js/jquery-2.2.0.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cyhn.aliapp.com/res/js/detail.js"></script>
     <link rel="stylesheet " type="text/css" href="http://cyhn.aliapp.com/res/css/detail.css">
-    <script src="http://cyhn.aliapp.com/res/js/main.js"></script>
     <title>detail</title>
 </head>
 <body>
@@ -59,5 +62,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
+<a id="returnToM" href="http://cyhn.aliapp.com/users/manage" class="btn btn-default">返回管理界面</a>
 </body>
 </html>

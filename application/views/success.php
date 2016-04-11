@@ -13,11 +13,11 @@
     <meta content="email=no" name="format-detection" />
     <!-- 设置系统状态栏风格 -->
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <title>提交项目</title>
-    <script type="text/javascript" src=" http://cyhn.aliapp.com/static/js/lib/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src=" http://cyhn.aliapp.com/static/js/lib/zepto.js"></script>
-    <script type="text/javascript" src=" http://cyhn.aliapp.com/static/js/lib/veryless.js"></script>
-    <link rel="stylesheet" type="text/css" href=" http://cyhn.aliapp.com/static/css/index.css">
+    <title>创业红娘报名</title>
+    <script type="text/javascript" src=" http://www.chuangyehongniang.cn/static/js/lib/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src=" http://www.chuangyehongniang.cn/static/js/lib/zepto.js"></script>
+    <script type="text/javascript" src=" http://www.chuangyehongniang.cn/static/js/lib/veryless.js"></script>
+    <link rel="stylesheet" type="text/css" href=" http://www.chuangyehongniang.cn/static/css/index.css">
 </head>
 
 <body>
@@ -25,6 +25,6 @@
         <div class="result">
             <p>您已成功提交项目信息！我们会尽快联系您，和您确定项目约谈的时间！</p>
         </div>
-            <input class="submitIt" type="button" value="返回首页"  onclick="WeixinJSBridge.call('closeWindow');>
+            <input class="submitIt" type="button" value="返回首页" onclick="WeixinJSBridge.call('closeWindow');">
     </div>
 </body>

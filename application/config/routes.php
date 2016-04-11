@@ -60,9 +60,10 @@ $route['about/ptjj']['GET'] = 'Welcome/ptjj';
 $route['about/tzzr']['GET'] = 'Welcome/tzzr';
 $route['form']['GET'] = 'Welcome/OAuth';
 $route['users/manage']['GET'] = 'Welcome/manage';
+$route['users/(:num)/detail']['GET'] = 'Welcome/detail/$1';
 
 $route['users']['GET'] = 'UserController/getSimpleList';
 $route['users/(:num)']['GET'] = 'UserController/getDetailInfo/$1';
-$route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';
 $route['users']['POST'] = 'UserController/addUser';
 $route['users/(:num)/email']['POST'] = 'UserController/sendEmail/$1';
+$route['users/(:num)']['DELETE'] = 'UserController/deleteUser/$1';

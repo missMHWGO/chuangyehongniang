@@ -1,24 +1,23 @@
-var pageNumber;
+var pageId = 0;
 var peopleList;
-var obj3;
+var count;
 var text;
 var emailId;
 var detailId;
 var deleteId;
+var emailStatus;
 $(document).ready(function () {
     personGet();
-    returnToM();
     tableColor();
-    $('.informationGroup').hide();
-    $('#returnToM').hide();
 });
 function personGet() {
-    $.get("http://localhost/cyhn2/users", {
-        page: 0
+    $.get("http://www.chuangyehongniang.cn/users", {
+        page: pageId
     }, function (result) {
         var obj1 = JSON.parse(result);
         var obj2 = obj1.data;
         peopleList = obj2.users;
+        count = obj2.count;
         var t = "";
         t += '<table id="personTable" data-toggle="table" data-side-pagination="server" data-pagination="true" data-page-list="[5,10,20,50]">';
         t += " <tr>" +
@@ -48,46 +47,89 @@ function personGet() {
             t += "</tr>";
         }
         t += "</table>";
-        $('#tableList').html(t);
+        var table = document.createElement('div');
+        $(table).addClass('tableCon')
+            .html(t)
+            .appendTo($("#tableList")); //main div
+        pageListBuild();
         $('.detail').each(function (q) {
             $(this).attr('id', 'detail' + q);
         });
         $('.sendEmail').each(function (e) {
-            $(this).attr('id', 'sendEmail' + e);
+            $(this).attr('id', 'sendEmail' + peopleList[e].Id);
         });
         $('.delete').each(function (h) {
             $(this).attr('id', 'delete' + h);
         });
         for (var k = 0; k < peopleList.length; k++) {
-            var aEmail = document.createElement("a");
-        aEmail.id = 'email' + peopleList[k].Id;
-            aEmail.innerHTML = '发送报名表';
-            (function (k) {
-                aEmail.addEventListener("click", function (f) {
-                    emailId = peopleList[k].Id;
-                    emailGive();
-                }, false);
-            })(k);
-            $('#sendEmail' + k).append(aEmail);
+            var emailIf = Number(peopleList[k].email_status);
+            switch (emailIf) {
+                case 0:
+                    emailStatus = "发送报名表";
+                    var aEmail = document.createElement("a");
+                    aEmail.id = 'email' + peopleList[k].Id;
+                    aEmail.innerHTML = emailStatus;
+                    break;
+                case 1:
+                    emailStatus = "已发送";
+                    var emailInfo = document.createElement('input');
+                    emailInfo.style.width = 100 + "px";
+                    emailInfo.style.textAlign="center";
+                    emailInfo.setAttribute("readonly", "readonly");
+                    emailInfo.id = 'emailTo' + peopleList[k].Id;
+                    $('#sendEmail' + peopleList[k].Id).append(emailInfo);
+                    $('#emailTo' + peopleList[k].Id).val(emailStatus);
+                    break;
+            }
+
+            if (emailIf == 0) {
+                (function (k) {
+                    aEmail.addEventListener("click", function (w) {
+                        $('#emailConfirm').off('click');
+                        emailId = peopleList[k].Id;
+                        $('#emailModal').modal('show');
+                        var v = "您确定将邮件发送给" + peopleList[k].projectName + "的负责人" + peopleList[k].name;
+                        $('#emailTo').val(v);
+                        $('#emailConfirm').one('click', function () {
+                            $('#email' + peopleList[k].Id).remove();
+                            $('#emailModal').modal('hide');
+                            var emailAdd = document.createElement('input');
+                            emailAdd.style.width = 100 + "px";
+                            emailAdd.setAttribute("readonly", "readonly");
+                            emailAdd.id = 'emailTo' + peopleList[k].Id;
+                            emailAdd.style.textAlign="center";
+                            $('#sendEmail' + peopleList[k].Id).append(emailAdd);
+                            emailStatus="已发送";
+                            emailGive();
+                        });
+
+                    }, false);
+                })(k);
+                $('#sendEmail' + peopleList[k].Id).append(aEmail);
+            }
             var aDetail = document.createElement("a");
+            detailId = peopleList[k].Id;
             aDetail.id = 'a' + peopleList[k].Id;
             aDetail.innerHTML = '详情';
+            aDetail.setAttribute('target', '_blank');
+            aDetail.href = "http://www.chuangyehongniang.cn/users/" + detailId + "/detail";
             (function (k) {
-                aDetail.addEventListener("click", function (g) {
+                aDetail.addEventListener("click", function (d) {
                     detailId = peopleList[k].Id;
-                    detailShow();
+                    localStorage.detail = detailId;
                 }, false);
             })(k);
+
             $('#detail' + k).append(aDetail);
             var delBtn = document.createElement("img");
             delBtn.id = 'del' + peopleList[k].Id;
-            delBtn.src='../img/delete.png';
-
+            delBtn.src = 'http://www.chuangyehongniang.cn/img/delete1.png';
             (function (k) {
                 delBtn.addEventListener("click", function (d) {
+                    $('#delConfirm').off('click');
                     deleteId = peopleList[k].Id;
                     $('#delModal').modal('show');
-                    $('#delConfirm').click(function(){
+                    $('#delConfirm').one('click',function(){
                         tableDelete();
                     });
                 }, false);
@@ -95,52 +137,59 @@ function personGet() {
             $('#delete' + k).append(delBtn);
         }
     });
-}
 
+}
 function emailGive() {
-    $.post("http://localhost/cyhn2/users/" + emailId + "/email", function () {
-        alert("邮件已经发送成功！")
-    });
+    $.post("http://www.chuangyehongniang.cn/users/" + emailId + "/email", emailEd());
 }
-function detailShow() {
-    $.get("http://localhost/cyhn2/users/" + detailId, function (res) {
-        $('.informationGroup').show();
-        $('#returnToM').show();
-        $('#tableList').hide();
-        var pro = JSON.parse(res);
-        var detailList = pro.data;
-        $('#name').val(detailList.name);
-        $('#phone').val(detailList.phone);
-        $('#email').val(detailList.email);
-        $('#school').val(detailList.school);
-        $('#city').val(detailList.city);
-        $('#itemName').val(detailList.projectName);
-        $('#direction').val(detailList.projectArea);
-        $('#productionStage').val(detailList.projectInfo);
-        $('#introduction').val(detailList.projectStatus);
-        $('#ifFinance').val(detailList.projectIfCost);
-        $('#amountFormer').val(detailList.projectCosted);
-        $('#amountFuture').val(detailList.projectCost);
-        returnToM();
-    });
-}
-function returnToM() {
-    $('#returnToM').click(function () {
-        $('.informationGroup').hide();
-        $('#tableList').show();
-        $('#returnToM').hide();
-    });
+function emailEd() {
+    alert("邮件发送成功");
+    $('#emailTo' + emailId).val(emailStatus);
+
 }
 function tableDelete() {
     $.ajax({
-        url: 'http://localhost/cyhn2/users/'+deleteId,
+        url: 'http://www.chuangyehongniang.cn/users/' + deleteId,
         type: 'DELETE',
-        success:function(){
+        success: function () {
+            $('#delModal').modal('hide');
             alert("删除成功");
+            location.reload();
         }
     });
 }
-function tableColor(){
+function tableColor() {
     $('tr').css("background-color", "#f7f7f7");
-    $('tr:odd' ).css("background-color", "#000000");
+    $('tr:odd').css("background-color", "#000000");
+}
+function pageListBuild() {
+    var num1 = count / 10;
+    var num2 = Number(num1);
+    var pageCount = Math.ceil(num2);
+    var pagesOut = "共有" + pageCount + "页,每页10条数据,共计" + count + "数据";
+    var ulEle = document.createElement('ul');
+    $('.pageP').html(pagesOut);
+    $(ulEle).addClass('pagination')
+        .appendTo($('#pagesGroup'));
+    for (var i = 0; i < pageCount; i++) {
+        var li = document.createElement("li");
+        li.id = "page_" + i;
+        $("ul").append(li);
+    }
+    for (var k = 0; k < pageCount; k++) {
+        var turnValue = k + 1;
+        var pageValue = "" + turnValue;
+        var aPage = document.createElement("a");
+        aPage.innerHTML = pageValue;
+        (function (k) {
+            aPage.addEventListener("click", function (g) {
+                pageId = k;
+                $('.tableCon').remove();
+                $(ulEle).remove();
+                personGet();
+            }, false);
+        })(k);
+        $("#page_" + k).append(aPage);
+    }
+    $("#page_" + pageId).addClass("active");
 }

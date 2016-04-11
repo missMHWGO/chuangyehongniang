@@ -32,8 +32,8 @@ class UserController extends CI_Controller
         $projectCosted = $this->input->post('projectCosted');
         $projectCost = $this->input->post('projectCost');
 
-        if($openId == null || $name == null || $phone == null || $email == null || $school == null || $city == null || $projectName == null || $projectArea == null || $projectInfo == null ||
-        $projectStatus == null || $projectIfCost == null || $projectCosted == null || $projectCost == null)
+        if($openId === null || $name === null || $phone === null || $email === null || $school === null || $city === null || $projectName === null || $projectArea === null || $projectInfo === null ||
+        $projectStatus === null || $projectIfCost === null || $projectCosted === null || $projectCost === null)
         {
             echo toJsonFail(NO_INPUT);
             return;
@@ -61,7 +61,11 @@ class UserController extends CI_Controller
             $project = $this->FormProjectModel->searchLittle($projectId);
             array_push($data, array_merge($key, $project));
         }
-        echo toJsonSuccess($data);
+        $count = $this->FormPersonModel->getCount();
+        $array = array();
+        $array['users'] = $data;
+        $array['count'] = $count;
+        echo toJsonSuccess($array);
     }
 
     public function getDetailInfo($id)
@@ -90,6 +94,10 @@ class UserController extends CI_Controller
 
     public function sendEmail($id)
     {
+        if($this->FormPersonModel->search($id)['email_status'] == 1){
+            echo toJsonFail(ALREADY_SEND_EMAIL);
+            return;
+        }
         $email = $this->FormPersonModel->search($id)['email'];
         $this->load->library('email');
         $config['protocol'] = 'smtp';
@@ -98,7 +106,7 @@ class UserController extends CI_Controller
         $config['smtp_user'] = EMAIL_ACCOUNT;//这里写上你的163邮箱账户
         $config['smtp_pass'] = EMAIL_PASSWORD;//这里写上你的163邮箱密码
         $config['smtp_port'] = 25;
-        $config['mailtype'] = 'text';
+        $config['mailtype'] = 'html';
         $config['validate'] = true;
         $config['priority'] = 1;
         $config['crlf']  = "\r\n";
@@ -106,16 +114,18 @@ class UserController extends CI_Controller
         $config['wordwrap'] = TRUE;
 
         $this->email->initialize($config);
-        $this->email->from(EMAIL_ACCOUNT, '创业红娘公益服务中心');//发件人
+        $this->email->from(EMAIL_ACCOUNT, MAIL_ACCOUNT);
         $this->email->to($email);
-        $this->email->subject('"创业红娘"创业项目信息登记表');
-        $this->email->message('这是一条测试邮件');//正文
-        $this->email->attach('./res/cyhn.docx');
+        $this->email->subject(MAIL_SUBJECT);
+        $this->email->message(MAIL_MESSAGE);//正文
+        $this->email->attach('./res/附件2-［创业红娘］创业者参会指南.pdf');
+        $this->email->attach('./res/［创业红娘］项目信息登记表.docx');
         if ( ! $this->email->send())
         {
             echo toJsonFail(FAIL_TO_SEND_MAIL);
 //            echo $this->email->print_debugger();   //调试用
         }else{
+            $this->FormPersonModel->updateEmailStatus($id);
             echo toJsonSuccessNoData();
         }
     }

@@ -33,6 +33,11 @@ class FormPersonModel extends CI_Model
         return $query->result_array();
     }
 
+    public function getCount()
+    {
+        return $this->db->count_all(FPETABLE);
+    }
+
     public function delete($id)
     {
         $this->db->delete(FPETABLE, array('Id' => $id));
@@ -48,5 +53,14 @@ class FormPersonModel extends CI_Model
             'school' => $school,
             'city' => $city
         ), array('openId' => $openId));
+        return $this->db->affected_rows();
+    }
+
+    public function updateEmailStatus($id)
+    {
+        $this->db->update(FPETABLE, array(
+            'email_status' => 1
+        ), array('Id' => $id));
+        return $this->db->affected_rows();
     }
 }
