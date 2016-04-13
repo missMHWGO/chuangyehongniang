@@ -46,7 +46,6 @@
 
             function check_email(email) {
                 var re = new RegExp();
-                var reg = new RegExp();
                 re = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
                 if (!email.match(re)) {
                     isBlank = true;
@@ -93,6 +92,7 @@
 
             function check_name(val, id) {
                 var re = new RegExp();
+                var reg = new RegExp();
                 re = /^[\w\u4e00-\u9fa5]+$/;
                 reg = /^[<script>.*</script>]+$/;
                 if (val.match(reg)) {

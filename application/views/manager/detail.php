@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="http://www.chuangyehongniang.cn/res/js/jquery-2.2.0.min.js"></script>
+    <script src="http://cyhn.aliapp.com/res/js/jquery-2.2.0.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
-    <script src="http://www.chuangyehongniang.cn/res/js/detail.js"></script>
+    <script src="http://cyhn.aliapp.com/res/js/detail.js"></script>
     <link rel="stylesheet " type="text/css" href="http://cyhn.aliapp.com/res/css/detail.css">
     <title>detail</title>
 </head>

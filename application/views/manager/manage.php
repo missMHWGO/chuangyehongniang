@@ -5,11 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../res/js/jquery-2.2.0.min.js"></script>
+    <script src="http://cyhn.aliapp.com/res/js/jquery-2.2.0.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet " type="text/css" href="../res/css/manage.css">
-    <script src="../res/js/main.js"></script>
+    <script src="http://cyhn.aliapp.com/res/js/main.js"></script>
     <title>manage</title>
 </head>
 <body>
