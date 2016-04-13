@@ -46,6 +46,7 @@
 
             function check_email(email) {
                 var re = new RegExp();
+                var reg = new RegExp();
                 re = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
                 if (!email.match(re)) {
                     isBlank = true;
