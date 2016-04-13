@@ -93,8 +93,8 @@
             function check_name(val, id) {
                 var re = new RegExp();
                 re = /^[\w\u4e00-\u9fa5]+$/;
-                re = /^[<script>.*</script>]+$/;
-                if (val.match(re)) {
+                reg = /^[<script>.*</script>]+$/;
+                if (val.match(reg)) {
                     val = "";
                 }
 

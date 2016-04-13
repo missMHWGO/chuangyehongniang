@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     first("province", "city", "form1", 0, 0);
 </script>
-<script type="text/javascript" src="http://www.chuangyehongniang.cnstatic/js/scripts/index.js"></script>
+<script type="text/javascript" src="http://www.chuangyehongniang.cn/static/js/scripts/index.js"></script>
 </body>
 
 </html>
